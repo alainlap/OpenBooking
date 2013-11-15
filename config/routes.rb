@@ -1,6 +1,7 @@
 OpenBooking::Application.routes.draw do
   
-  resources :user_sessions
+  resources :providers
+  resources :user_sessions, only: [:new, :create, :destroy]
   resources :users
 
   get 'login' => 'user_sessions#new', as: :login

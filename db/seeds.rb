@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+types = ["personal", "dentist", "accountant", "doctor", "lawyer", "acupuncturist", "massage therapist", "photographer", "real estate agent", "general labourer", "contractor", "hair stylist", "tutor", "event planner", "dog groomer"]
+types.sort!
+
+types.each do |t|
+	Type.create(name: t)
+end
+
+User.create(username: "test", email: "test@test.com", password: "test", password_confirmation: "test")
+
