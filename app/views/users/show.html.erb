@@ -17,7 +17,7 @@
 </div>
 
 <div class="h-50 v-50 bright">
-	<% if current_user.client.nil? %>
+	<% if @user.client.nil? %>
 		<%= link_to button_tag("Add a user profile"), new_user_client_path(@user) %>
 	<% else %>
 		<%= render 'show_client' %>
@@ -25,7 +25,7 @@
 </div>
 
 <div class="h-50 v-50 light">
-	<% if current_user.provider.nil? %>
+	<% if @user.provider.nil? %>
 		<%= link_to button_tag("Add a provider profile"), new_user_provider_path(@user) %>
 	<% else %>
 		<%= render 'show_provider' %>

@@ -16,17 +16,17 @@
         <%= link_to "Logout", :logout, method: :post %>
       <% else %>
         <%= form_tag user_sessions_path, :method => :post do %>
-          <div class="field">
+          <div class="field login">
             <%= text_field_tag :username, nil, placeholder: "Username" %>
           </div>
-          <div class="field">
+          <div class="field login">
             <%= password_field_tag :password, nil, placeholder: "Password" %>
           </div>
-          <div class="field">
+          <div class="field login">
           <%= label_tag "Save" %>
           <%= check_box_tag :remember %>
           </div>
-          <div class="actions">
+          <div class="actions login">
             <%= submit_tag "Login" %>
           </div>
         <% end %>
@@ -36,13 +36,15 @@
         No account? <%= link_to "Register", new_user_path %>
     </div>
   </nav>
-  <div>
-    <p id="notice"><%= flash[:notice] %></p>
-    <p id="alert"><%= flash[:alert] %></p>
-  </div>
+  
 
   <main>
 
+    <div>
+    <p id="notice"><%= flash[:notice] %></p>
+    <p id="alert"><%= flash[:alert] %></p>
+  </div>
+  
     <%= yield %>
 
   </main>

@@ -11,8 +11,42 @@ types = ["personal", "dentist", "accountant", "doctor", "lawyer", "acupuncturist
 types.sort!
 
 types.each do |t|
-	Type.create(name: t)
+	Type.create(name: t.capitalize)
 end
+	
+User.create(
+	username: "jhenrietta",
+	email: "jhen@gmail.com",
+	password: "test",
+	password_confirmation: "test"
+	)
 
-User.create(username: "test", email: "test@test.com", password: "test", password_confirmation: "test")
+User.create(
+	username: "jamesbond",
+	email: "007@mi6.gov.uk",
+	password: "test",
+	password_confirmation: "test"
+	)
 
+Client.create(
+	name: "Jane Henrietta",
+	address: "123 Yonge St.",
+	postal_code: "90210",
+	city: "Toronto",
+	province: "ON",
+	phone_number: "(416) 123-4567",
+	user_id: 1
+	)
+
+Provider.create(
+	name: "James Bond",
+	address: "1298 Mill St.",
+	postal_code: "L4N 7B2",
+	city: "Kingston",
+	province: "ON",
+	phone_number: "(416) 133-4567",
+	website: "www.jamesbond.com",
+	description: "007",
+	type_id: 3,
+	user_id: 2
+	)
