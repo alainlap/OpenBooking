@@ -2,6 +2,7 @@ class ProvidersController < ApplicationController
   before_action :set_provider, only: [:show, :edit, :update, :destroy]
   before_filter :load_types, :set_user
   skip_before_filter :require_login, only: [:index, :show]
+  before_action :disallow_duplicate_providers, only: [:new]
 
   def index
     @providers = Provider.all
@@ -57,5 +58,12 @@ class ProvidersController < ApplicationController
 
     def set_user
       @user = current_user
+    end
+
+
+    def disallow_duplicate_providers
+      unless @user.provider.nil?
+        redirect_to(user_path(@user), notice: "Error: You can only have one provider profile!")
+      end
     end
 end

@@ -9,4 +9,5 @@
 <p><%= @user.provider.description %></p>
 <p><%= @user.provider.type.name %> </p>
 
-<%= link_to "Edit provider profile", edit_user_provider_path(@user, @user.provider) %>
+<%= link_to "Edit", edit_user_provider_path(@user, @user.provider) %> |
+<%= link_to "Delete", user_provider_path(@user, @user.provider), confirm: "Are you sure you want to delete provider #{@user.provider.name}", method: :delete %>

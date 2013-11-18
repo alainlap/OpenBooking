@@ -1,6 +1,8 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
   before_action :set_user
+  before_action :disallow_duplicate_clients, only: [:new]
+
 
   def show
   end
@@ -49,5 +51,11 @@ class ClientsController < ApplicationController
 
     def set_user
       @user = current_user
+    end
+
+    def disallow_duplicate_clients
+      unless @user.client.nil?
+        redirect_to(user_path(@user), notice: "Error: You can only have one client profile!")
+      end
     end
 end

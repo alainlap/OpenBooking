@@ -9,10 +9,11 @@
   <body class="h-full v-full">
 
   <nav class="container h-full dark">
+    <%= link_to "Home", root_path, class: "logo" %>
     <div class="login h-full">
       <% if current_user %>
-        <%= "Hello #{current_user.username}" %>
-        <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
+        <%= "Hello #{current_user.username}" %><br>
+        <%= link_to "My Profile", user_path(current_user) %>
         <%= link_to "Logout", :logout, method: :post %>
       <% else %>
         <%= form_tag user_sessions_path, :method => :post do %>
@@ -30,10 +31,10 @@
             <%= submit_tag "Login" %>
           </div>
         <% end %>
+        <div>
+          No account? <%= link_to "Register", new_user_path %>
+        </div>
       <% end %>
-    </div>
-    <div>
-        No account? <%= link_to "Register", new_user_path %>
     </div>
   </nav>
   

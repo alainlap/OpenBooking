@@ -5,4 +5,5 @@
 <p><%= @user.client.province %></p>
 <p><%= @user.client.phone_number %></p>
 
-<%= link_to "Edit client profile", edit_user_client_path(@user, @user.client) %>
+<%= link_to "Edit", edit_user_client_path(@user, @user.client) %> |
+<%= link_to "Delete", user_client_path(@user, @user.client), confirm: "Are you sure you want to delete #{@user.client.name}?", method: :delete %>
