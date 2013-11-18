@@ -8,9 +8,6 @@ class AppointmentsController < ApplicationController
     @i_am_provider_appointments = (@user.provider ? Appointment.where(["provider_id = ?", @user.provider.id]) : []) 
   end
 
-  def show
-  end
-
   def new
     @appointment = Appointment.new
   end
