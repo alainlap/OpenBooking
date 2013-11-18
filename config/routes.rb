@@ -8,7 +8,9 @@ OpenBooking::Application.routes.draw do
   resources :user_sessions, only: [:new, :create, :destroy]
   resources :users, except: [:index, :destroy] do 
     resources :clients, except: [:index, :show]
-    resources :providers, except: [:index, :show]
+    resources :providers, except: [:index, :show] do
+      resources :availabilities, only: [:create, :update, :destroy]
+    end
     resources :appointments, except: [:new, :create, :show]
   end
 

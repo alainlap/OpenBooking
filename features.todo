@@ -1,0 +1,8 @@
+Core:
+  ☐ Ability to add, view, modify and delete availability
+  ☐ Show availability when booking appointments
+  ☐ Validate appointment bookings against:
+    ☐ availability
+    ☐ existing appointments as provider
+    ☐ existing appointments as client
+    ☐ user identity (can't book with yourself)

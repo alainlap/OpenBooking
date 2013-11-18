@@ -1,31 +1,18 @@
 
 <h2>Schedule an appointment with:<br> <%= @provider.name %></h2>
 
-<p>
-  <strong>Address:</strong>
-  <%= @provider.address %>
-</p>
+<p><strong>Address:</strong><%= @provider.address %></p>
 
-<p>
-  <strong>Postal code:</strong>
-  <%= @provider.postal_code %>
-</p>
+<p><strong>Postal code:</strong><%= @provider.postal_code %></p>
 
-<p>
-  <strong>City:</strong>
-  <%= @provider.city %>
-</p>
+<p><strong>City:</strong><%= @provider.city %></p>
 
-<p>
-  <strong>Province:</strong>
-  <%= @provider.province %>
-</p>
+<p><strong>Province:</strong><%= @provider.province %></p>
 
-<p>
-  <strong>Type:</strong>
-  <%= @provider.type.name %>
-</p>
+<p><strong>Type:</strong><%= @provider.type.name %></p>
 
 
-<%= link_to button_tag("Book appointment"), new_provider_appointment_path(@provider) %>
+<% unless @user && @provider == @user.provider %>
+  <%= link_to button_tag("Book appointment"), new_provider_appointment_path(@provider) %>
+<% end %>
  <%= link_to 'Back', root_path %>
