@@ -1,37 +1,39 @@
-<h1>Listing appointments</h1>
+<h1>Here are your appointments</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Start datetime</th>
-      <th>End datetime</th>
-      <th>Reason</th>
-      <th>Description</th>
-      <th>Provider</th>
-      <th>Client</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @appointments.each do |appointment| %>
-      <tr>
-        <td><%= appointment.start_datetime %></td>
-        <td><%= appointment.end_datetime %></td>
-        <td><%= appointment.reason %></td>
-        <td><%= appointment.description %></td>
-        <td><%= appointment.provider_id %></td>
-        <td><%= appointment.client_id %></td>
-        <td><%= link_to 'Show', appointment %></td>
-        <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
-        <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<h2>Client Appointments</h2>
+<% @i_am_client_appointments.each do |appointment| %>
+	
+	<div class="card">
+	
+	<p><%= appointment.provider.name %></p>
+	<p><%= appointment.reason %></p>
+	<p><%= appointment.start_datetime %></p>
+	<p><%= appointment.end_datetime %></p>
+	<p><%= appointment.description %></p>
+	<p><%= link_to "Edit", edit_user_appointment_path(@user, appointment) %> |
+		<%= link_to "Delete", user_appointment_path(@user, appointment), confirm: "Are you sure you want to delete your appointment?", method: :delete %>
+	</p>
+	</div>
 
-<br>
+<% end %>
 
-<%= link_to 'New Appointment', new_appointment_path %>
+
+<h2>Provider Appointments</h2>
+<% @i_am_provider_appointments.each do |appointment| %>
+	
+	<div class="card">
+	
+	<p><%= appointment.provider.name %></p>
+	<p><%= appointment.reason %></p>
+	<p><%= appointment.start_datetime %></p>
+	<p><%= appointment.end_datetime %></p>
+	<p><%= appointment.description %></p>
+
+	<p><%= link_to "Edit", edit_user_appointment_path(@user, appointment) %> |
+		<%= link_to "Delete", user_appointment_path(@user, appointment), confirm: "Are you sure you want to delete your appointment?", method: :delete %>
+	</p>
+
+	</div>
+
+<% end %>

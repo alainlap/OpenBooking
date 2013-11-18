@@ -1,8 +1,5 @@
 
-<p>
-  <strong>Name:</strong>
-  <%= @provider.name %>
-</p>
+<h2>Schedule an appointment with:<br> <%= @provider.name %></h2>
 
 <p>
   <strong>Address:</strong>
@@ -29,5 +26,9 @@
   <%= @provider.type.name %>
 </p>
 
-<%= link_to 'Edit', edit_provider_path(@provider) %> |
-<%= link_to 'Back', providers_path %>
+
+
+
+
+
+<%= link_to 'Back', root_path %>

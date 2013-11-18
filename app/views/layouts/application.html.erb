@@ -10,9 +10,11 @@
 
   <nav class="container h-full dark">
     <%= link_to "Home", root_path, class: "logo" %>
+    
     <div class="login h-full">
       <% if current_user %>
         <%= "Hello #{current_user.username}" %><br>
+        <%= link_to "My Appointments", user_appointments_path(current_user)%>
         <%= link_to "My Profile", user_path(current_user) %>
         <%= link_to "Logout", :logout, method: :post %>
       <% else %>

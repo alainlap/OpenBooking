@@ -2,7 +2,7 @@
 
 <% @providers.each do |provider| %>
 	
-	<div class="card">
+	<a href="<%= provider_path(provider) %>"><div class="card">
 		<h2><%= provider.name %></h2>
 		<h3><%= provider.type.name %></h3>
 		<p><%= provider.description %></p>
@@ -11,7 +11,7 @@
 		<p><%= provider.phone_number %></p>
 		<p><%= provider.address %></p>
 		<p><%= provider.city %>, <%= provider.province %>,&nbsp;&nbsp;<%= provider.postal_code %></p>
-	</div>
+	</div></a>
 
 <% end %>
 
