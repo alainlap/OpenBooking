@@ -8,7 +8,7 @@
 </head>
   <body class="h-full v-full">
 
-  <nav class="container h-full">
+  <nav class="container h-full dark">
     <div class="login h-full">
       <% if current_user %>
         <%= "Hello #{current_user.username}" %>
@@ -44,7 +44,7 @@
   <main>
 
     <%= yield %>
-    
+
   </main>
   </body>
 </html>

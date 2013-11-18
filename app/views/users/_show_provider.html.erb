@@ -1,0 +1,12 @@
+<h2>Provider Profile</h2>
+<p><%= @user.provider.name %></p>
+<p><%= @user.provider.address %></p>
+<p><%= @user.provider.postal_code %></p>
+<p><%= @user.provider.city %></p>
+<p><%= @user.provider.province %></p>
+<p><%= @user.provider.phone_number %></p>
+<p><%= @user.provider.website %></p>
+<p><%= @user.provider.description %></p>
+<p><%= @user.provider.type.name %> </p>
+
+<%= link_to "Edit provider profile", edit_user_provider_path(@user, @user.provider) %>

@@ -1,0 +1,8 @@
+<p><%= @user.client.name %></p>
+<p><%= @user.client.address %></p>
+<p><%= @user.client.postal_code %></p>
+<p><%= @user.client.city %></p>
+<p><%= @user.client.province %></p>
+<p><%= @user.client.phone_number %></p>
+
+<%= link_to "Edit client profile", edit_user_client_path(@user, @user.client) %>

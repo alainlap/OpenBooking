@@ -1,14 +1,33 @@
 <h1>Dashboard</h1>
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+<div class="h-full">
+	<h2></h2>
+	<p>
+	  <strong>Email:</strong>
+	  <%= @user.email %>
+	</p>
+
+	<p>
+	  <strong>Username:</strong>
+	  <%= @user.username %>
+	</p>
 
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+	<%= link_to 'Edit basic profile', edit_user_path(@user) %>
+</div>
+
+<div class="h-50 v-50 bright">
+	<% if current_user.client.nil? %>
+		<%= link_to button_tag("Add a user profile"), new_user_client_path(@user) %>
+	<% else %>
+		<%= render 'show_client' %>
+	<% end %>
+</div>
+
+<div class="h-50 v-50 light">
+	<% if current_user.provider.nil? %>
+		<%= link_to button_tag("Add a provider profile"), new_user_provider_path(@user) %>
+	<% else %>
+		<%= render 'show_provider' %>
+	<% end %>
+</div>

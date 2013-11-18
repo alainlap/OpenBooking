@@ -24,7 +24,16 @@
 	height: 100%;
 }
 
-.field, .actions {
+.h-50 {
+	width: 49%;
+	display: inline-block;
+}
+
+.v-50 {
+	min-height: 50%;
+}
+
+.login.field, .login.actions {
 	display: inline-block;
 }
 

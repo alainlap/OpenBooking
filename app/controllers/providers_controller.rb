@@ -2,6 +2,7 @@ class ProvidersController < ApplicationController
   before_action :set_provider, only: [:show, :edit, :update, :destroy]
   before_filter :load_types
   skip_before_filter :require_login, only: [:index, :show]
+  before_action :set_user
 
   def index
     @providers = Provider.all
@@ -21,7 +22,7 @@ class ProvidersController < ApplicationController
     @provider = Provider.new(provider_params)
     @provider.user_id = current_user.id
     if @provider.save
-      redirect_to @provider, notice: 'Provider was successfully created.'
+      redirect_to user_path(@user), notice: 'Provider profile successfully created.'
     else
       render action: 'new'
     end
@@ -29,7 +30,7 @@ class ProvidersController < ApplicationController
 
   def update
     if @provider.update(provider_params)
-      redirect_to @provider, notice: 'Provider was successfully updated.'
+      redirect_to user_path(@user), notice: 'Provider was successfully updated.'
     else
       render action: 'edit'
     end
@@ -37,7 +38,7 @@ class ProvidersController < ApplicationController
 
   def destroy
     @provider.destroy
-    redirect_to providers_url
+    redirect_to user_path(@user)
   end
 
   private
@@ -53,5 +54,9 @@ class ProvidersController < ApplicationController
 
     def load_types
       @types = Type.all
+    end
+
+    def set_user
+      @user = current_user
     end
 end
