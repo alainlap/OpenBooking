@@ -1,13 +1,17 @@
 OpenBooking::Application.routes.draw do
+  root 'providers#index'
   
-  resources :appointments
-
-  resources :clients
-  resources :providers
   resources :user_sessions, only: [:new, :create, :destroy]
-  resources :users
+  resources :users do 
+    resources :clients do
+      resources :appointments
+    end
+    resources :providers do
+      resources :appointments
+    end
+  end
 
-  get 'login' => 'user_sessions#new', as: :login
+  # get 'login' => 'user_sessions#new', as: :login
   post 'logout' => 'user_sessions#destroy', as: :logout
 
   # The priority is based upon order of creation: first created -> highest priority.
