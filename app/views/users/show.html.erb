@@ -44,7 +44,7 @@
 						<%= format_time(dx.end_time) %><br>
 						<% end %>
 				<% end %>
-				<%= link_to "Edit", edit_user_provider_availability_path(@user, @provider) %>
+				<%= link_to "Edit", new_user_provider_availability_path(@user, @user.provider) %>
 			<% end %>
 		</div>
 	<% end %>

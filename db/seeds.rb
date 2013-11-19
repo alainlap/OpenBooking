@@ -87,3 +87,38 @@ Provider.create(
 	type_id: 5,
 	user_id: 3
 	)
+
+Availability.create(
+	day: 1,
+	start_time: 9,
+	end_time: 17,
+	provider_id: 1
+	)
+
+Availability.create(
+	day: 2,
+	start_time: 9,
+	end_time: 17,
+	provider_id: 1
+	)
+
+Availability.create(
+	day: 3,
+	start_time: 10,
+	end_time: 17,
+	provider_id: 1
+	)
+
+Availability.create(
+	day: 4,
+	start_time: 9,
+	end_time: 17,
+	provider_id: 1
+	)
+
+Availability.create(
+	day: 5,
+	start_time: 9,
+	end_time: 17,
+	provider_id: 1
+	)
