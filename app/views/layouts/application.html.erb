@@ -13,24 +13,26 @@
     <ul class="left-nav">
       <li><%= link_to "Browse", root_path %></li>
       <li><%= link_to "Categories", root_path %></li>
+      <% if current_user %>
       <li><%= link_to "My Appointments", user_appointments_path(current_user)%></li>
+      <% end %>
     </ul>
     
-    <div class="login light">
+    <div class="login dark">
       <% if current_user %>
         <strong><%= "Hello #{current_user.username}" %></strong><br>
         <%= link_to "My Profile", user_path(current_user) %> 
-        &nbsp&nbsp|&nbsp&nbsp
+        &nbsp;&nbsp;|&nbsp;&nbsp;
         <%= link_to "Logout", :logout, method: :post %>
       <% else %>
         <%= form_tag user_sessions_path, :method => :post do %>
-          <div class="field login">
+          <div class="field">
             <%= text_field_tag :username, nil, placeholder: "Username" %>
           </div>
-          <div class="field login">
+          <div class="field">
             <%= password_field_tag :password, nil, placeholder: "Password" %>
           </div>
-          <div class="field login">
+          <div class="field">
           <%= label_tag "Save" %>
           <%= check_box_tag :remember %>
           </div>

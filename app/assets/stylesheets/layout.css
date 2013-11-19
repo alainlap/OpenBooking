@@ -37,15 +37,22 @@
 	text-align: left;
 }
 
-.login.field, .login.actions {
+.left-nav,
+.logo,
+.login,
+.login form .field,
+.login form .actions {
 	display: inline-block;
 }
 
 .login {
 	text-align: right;
-	width: 15%;
-	min-width: 165px;
 	float: right;
+}
+
+.login {
+	border-radius: 5px;	
+	padding: 0.5em;
 }
 
 .logo {
@@ -54,11 +61,7 @@
 }
 
 .left-nav {
-	min-width: 415px;
-}
-
-.left-nav, .login, .logo {
-	display: inline-block;
+	/*min-width: 315px;*/
 }
 
 .left-nav li, .logo {

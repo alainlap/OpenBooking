@@ -36,12 +36,6 @@ nav a, .logo {
 	text-decoration: none;
 }
 
-.login {
-	border-radius: 5px;	
-	margin: 1em;
-	padding: 0.5em;
-}
-
 a.logo {
 	font-style: italic;
 	font-weight: bold;
@@ -61,6 +55,7 @@ a.logo {
 
 .card, .user-profile {
 		border:3px solid #015666;
+		
 }
 
 a.card:hover, a.card:active {

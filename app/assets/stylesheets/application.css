@@ -22,6 +22,10 @@ html,body,div,span,h1,h2,h3,h4,h5,h6,p,a,img,strong,ol,ul,li,fieldset,form,label
 	box-sizing: border-box;
 }
 
+* {
+	font-family: 'Helvetica Neue', 'Helvetica', 'sans serif';
+}
+
 nav {
 	min-height: 4.5em;
 	font-size: 1em;
