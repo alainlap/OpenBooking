@@ -16,8 +16,8 @@
     <%= f.datetime_select :start_datetime %>
   </div>
   <div class="field">
-    <%= f.label :end_datetime %><br>
-    <%= f.datetime_select :end_datetime %>
+    <%= label_tag :duration, "Appointment Length" %><br>
+    <%= select_tag :duration, options_for_select(appoint_lengths, 1) %>
   </div>
   <div class="field">
     <%= f.label :reason %><br>

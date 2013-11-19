@@ -19,6 +19,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params)
     @appointment.provider_id = @provider.id
     @appointment.client_id = current_user.client.id
+    @appointment.end_datetime = @appointment.start_datetime + params[:duration].to_i.hour
 
     if @appointment.save
       redirect_to provider_path(@provider), notice: 'Appointment was successfully created.'
@@ -37,7 +38,7 @@ class AppointmentsController < ApplicationController
 
   def destroy
     @appointment.destroy
-    redirect_to root_path
+    redirect_to user_appointments_path(@user)
   end
 
   private
@@ -47,7 +48,7 @@ class AppointmentsController < ApplicationController
     end
 
     def appointment_params
-      params.require(:appointment).permit(:start_datetime, :end_datetime, :reason, :description)
+      params.require(:appointment).permit(:start_datetime, :duration, :reason, :description)
     end
 
     def set_provider
