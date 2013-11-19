@@ -1,5 +1,7 @@
 Core:
   ☐ Ability to add, view, modify and delete availability
+    ☐ Default: Mon-Fri 9-5
+    ☐ Go to index, shows form with either "add" or "edit" button depending on whether exists (post or patch to appropriate paths respectively)
   ☐ Show availability when booking appointments
   ☐ Validate appointment bookings against:
     ☐ availability

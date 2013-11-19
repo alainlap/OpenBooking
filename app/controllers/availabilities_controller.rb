@@ -2,19 +2,15 @@ class AvailabilitiesController < ApplicationController
 	before_action :set_provider
 
 	def new
-		@availability = Availability.new
-		@availabilities = Array.new(7) { @provider.availabilities.build }
+
 	end
 
 	def create
-		
-
-
-		@availability = Availability.new(param)
+		@availability = Availability.new(availabilities_params)
 		if @availability.save
-    	redirect_to :back , notice: 'Availability successfully created.'
+    	render action: 'new', notice: 'Availability successfully saved.'
   	else
-  	  render action: 'new'
+  	  render action: 'new', notice: 'Sorry, please try again.'
   	end
 	end
 
@@ -32,7 +28,7 @@ class AvailabilitiesController < ApplicationController
 
 	private
 	def availabilities_params
-		params.require(:availability).permit(:day, :start_time, :end_time, :availabilities)
+		params.permit(:day, :start_time, :end_time, :provider_id)
 	end
 
 	def set_provider
