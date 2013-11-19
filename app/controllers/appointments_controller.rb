@@ -46,7 +46,6 @@ class AppointmentsController < ApplicationController
       @appointment = Appointment.find(params[:id])
     end
 
-
     def appointment_params
       params.require(:appointment).permit(:start_datetime, :end_datetime, :reason, :description)
     end
@@ -58,4 +57,5 @@ class AppointmentsController < ApplicationController
     def set_user
       @user = current_user
     end
+    
 end

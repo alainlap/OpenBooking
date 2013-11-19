@@ -49,4 +49,5 @@ gem 'sorcery'
 group :development, :test do
 	gem 'rspec-rails'
 	gem "factory_girl_rails", "~> 4.3.0"
+	gem "pry"
 end
