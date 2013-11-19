@@ -15,8 +15,6 @@
 html,body,div,span,h1,h2,h3,h4,h5,h6,p,a,img,strong,ol,ul,li,fieldset,form,label,article,aside,footer,header,nav,section,main,div {
 	margin: 0;
 	padding: 0;
-	border: 0;
-	vertical-align: top;
 
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -25,22 +23,20 @@ html,body,div,span,h1,h2,h3,h4,h5,h6,p,a,img,strong,ol,ul,li,fieldset,form,label
 }
 
 nav {
-	position: fixed;
-	top:0;
-	left:0;
-	height: 4em;
+	min-height: 4.5em;
 	font-size: 1em;
-	padding-top: 1em;
+	vertical-align: middle;
 }
 
 input, label {
 	height: 1em;
 }
 
-main {
-	padding-top: 4em;
+h1 {
+	padding: 0.5em;
+	margin-bottom: 0.5em;
 }
 
-a, a:visited, a:hover, a:active {
-	color: red;
+h2 {
+	padding-bottom: 0.25em;
 }

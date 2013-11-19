@@ -1,17 +1,20 @@
-<h1>Listing providers</h1>
+<h1 class="h-full light">Browse providers</h1>
 
-<% @providers.each do |provider| %>
-	
-	<a href="<%= provider_path(provider) %>"><div class="card">
-		<h2><%= provider.name %></h2>
-		<h3><%= provider.type.name %></h3>
-		<p><%= provider.description %></p>
-		<p><%= provider.user.email %></p>
-		<p><%= provider.website %></p>
-		<p><%= provider.phone_number %></p>
-		<p><%= provider.address %></p>
-		<p><%= provider.city %>, <%= provider.province %>,&nbsp;&nbsp;<%= provider.postal_code %></p>
-	</div></a>
+<div class="card-wrapper">
+	<% @providers.each do |provider| %>	
+		<a href="<%= provider_path(provider) %>" class="card light">
+			<h2><%= provider.name %></h2>
+			<h3><%= provider.type.name %></h3>
+			<p><%= provider.description %></p><br>
 
-<% end %>
+			<p><%= provider.address %></p>
+			<p><%= provider.city %>, <%= provider.province %>,&nbsp;&nbsp;<%= provider.postal_code %></p>
+			<p><%= provider.phone_number %></p><br>
+
+			<p><%= provider.user.email %></p>
+			<p><%= provider.website %></p>
+
+		</a>
+	<% end %>
+</div>
 

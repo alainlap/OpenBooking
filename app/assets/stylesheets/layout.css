@@ -33,21 +33,59 @@
 	min-height: 50%;
 }
 
+.left {
+	text-align: left;
+}
+
 .login.field, .login.actions {
 	display: inline-block;
 }
 
-nav {
+.login {
 	text-align: right;
-
+	width: 15%;
+	min-width: 165px;
+	float: right;
 }
 
 .logo {
-	position:absolute;
-	top: 1em;
-	left: 1em;
+	width: 15%;
+	min-width: 185px;
+}
+
+.left-nav {
+	min-width: 415px;
+}
+
+.left-nav, .login, .logo {
+	display: inline-block;
+}
+
+.left-nav li, .logo {
+	text-align: left;
+	display: inline-block;
+	padding: 1em 1em 0 1em;
+}
+
+.card-wrapper {
+	width: 80%;
+	margin: 3em 10%;
 }
 
 .card {
 	display: inline-block;
+	width:39.8%;
+	margin: 2em 5%;
+	padding:1.5em;
+}
+
+.profile-wrapper, .card {
+	vertical-align: top;
+}
+
+.user-profile {
+	width: 90%;
+ 	margin: 0 5%;
+	border-radius: 5px;
+	padding: 1.5em;
 }
