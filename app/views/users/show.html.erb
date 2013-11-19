@@ -27,4 +27,19 @@
 			<%= render 'show_provider' %>
 		<% end %>
 	</div>
+
+	<% unless @user.provider.nil? %>
+		<div class="card light">
+			<em><h2>Provider Availability</h2>
+			<p>These availabilities will be shown to your clients</p></em>
+
+			<% if @user.provider.availabilities.empty? %>
+				<%= link_to button_tag("Add my availabilies"), new_user_provider_availability_path(@user, @user.provider) %>
+			<% else %>
+				<% @user.provider.availabilities.each do |availability| %>
+					
+				<% end %>
+			<% end %>
+		</div>
+	<% end %>
 </div>

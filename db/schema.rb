@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 20131118222436) do
 
   create_table "availabilities", force: true do |t|
     t.integer  "day"
-    t.time     "start_time"
-    t.time     "end_time"
+    t.integer  "start_time"
+    t.integer  "end_time"
     t.integer  "provider_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -43,9 +43,9 @@ ActiveRecord::Schema.define(version: 20131118222436) do
     t.string   "city"
     t.string   "province"
     t.integer  "user_id"
+    t.string   "phone_number"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "phone_number"
   end
 
   create_table "providers", force: true do |t|
@@ -56,11 +56,11 @@ ActiveRecord::Schema.define(version: 20131118222436) do
     t.string   "province"
     t.integer  "type_id"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.text     "description"
     t.string   "website"
     t.string   "phone_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "types", force: true do |t|

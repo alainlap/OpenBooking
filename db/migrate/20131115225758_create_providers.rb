@@ -8,6 +8,9 @@ class CreateProviders < ActiveRecord::Migration
       t.string :province
       t.integer :type_id
       t.integer :user_id
+      t.text :description
+      t.string :website
+      t.string :phone_number
 
       t.timestamps
     end

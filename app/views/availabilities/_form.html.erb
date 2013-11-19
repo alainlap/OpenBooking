@@ -1,0 +1,21 @@
+
+
+<%= form_tag(".", method: :post) do %>
+
+	
+	<% wdays.each do |d| %>
+
+		<h3><%= d[1].capitalize %></h3>
+		<%= hidden_field_tag :day, value: d[0] %>
+		<p>
+			<%= label_tag "Start Time" %>
+			<%= select_tag :start_time, options_for_select(ftime, 9) %>
+		</p>
+		<p>
+			<%= label_tag "End Time" %>
+			<%= select_tag :end_time, options_for_select(ftime, 17) %>
+		</p>
+			<p><%= submit_tag "Save" %></p><br>
+	<% end %>
+<% end %>
+
