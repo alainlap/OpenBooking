@@ -45,4 +45,8 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'sorcery'
-gem 'rspec-rails'
+
+group :development, :test do
+	gem 'rspec-rails'
+	gem "factory_girl_rails", "~> 4.3.0"
+end
