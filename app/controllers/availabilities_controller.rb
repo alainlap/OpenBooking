@@ -8,7 +8,7 @@ class AvailabilitiesController < ApplicationController
 	def update
 		@availability = Availability.find(availabilities_params[:id])
 		if @availability.update(availabilities_params)
-    	redirect_to user_provider_availabilities_path(@user, @provider), notice: 'Availability successfully saved.'
+    	redirect_to user_provider_availabilities_path(@user, @provider), flash: {success: 'Availability successfully saved.'}
   	else
   	  redirect_to user_provider_availabilities_path(@user, @provider), alert: 'Sorry, please try again.'
   	end

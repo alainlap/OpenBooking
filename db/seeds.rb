@@ -48,6 +48,13 @@ Provider.create(
 )
 
 Availability.create(
+	day: 0,
+	start_time: nil,
+	end_time: nil,
+	provider_id: 1
+	)
+
+Availability.create(
 	day: 1,
 	start_time: 0,
 	end_time: 3,
@@ -82,6 +89,13 @@ Availability.create(
 	provider_id: 1
 	)
 
+Availability.create(
+	day: 6,
+	start_time: nil,
+	end_time: nil,
+	provider_id: 1
+	)
+
 # USER 2
 
 User.create(
@@ -112,6 +126,13 @@ Provider.create(
 	description: "World famous spy, assasin and gynocologist!",
 	type_id: 3,
 	user_id: 2
+	)
+
+Availability.create(
+	day: 0,
+	start_time: nil,
+	end_time: nil,
+	provider_id: 2
 	)
 
 Availability.create(
@@ -149,6 +170,12 @@ Availability.create(
 	provider_id: 2
 	)
 
+Availability.create(
+	day: 6,
+	start_time: nil,
+	end_time: nil,
+	provider_id: 2
+	)
 
 # USER 3
 
@@ -183,6 +210,13 @@ Provider.create(
 	)
 
 Availability.create(
+	day: 0,
+	start_time: nil,
+	end_time: nil,
+	provider_id: 3
+	)
+
+Availability.create(
 	day: 1,
 	start_time: 12,
 	end_time: 16,
@@ -214,6 +248,13 @@ Availability.create(
 	day: 5,
 	start_time: 12,
 	end_time: 16,
+	provider_id: 3
+	)
+
+Availability.create(
+	day: 6,
+	start_time: nil,
+	end_time: nil,
 	provider_id: 3
 	)
 

@@ -1,19 +1,25 @@
-Core:
-  ☐ Ability to add, view, modify and delete availability
-    ☐ Go to index, shows form with either "add" or "edit" button depending on whether exists (post or patch to appropriate paths respectively)
-  ☐ Delete availability for a given day
-  ☐ Categories display not hooked up at all
-  ☐ Availabilities should over-write if duplicate day of the week
+Core features:
 
 Broken things:
-
+ ☐ possibly the viewing of availabilities? (nil means not avail now)
+ ☐ possibly the validations against availabilities? (nil means not avail now)
+ ☐ the seeds
+ ☐ You can book appointments in the past (limit drop-downs or validate?)
 Visual:
-
+ ☐ Appointments edit is pretty cluttered
 Not great things:
   ☐ It shows past appointments (make an archive?)
-  ☐ use constant from Availability model for wdays
+  ☐ should use constant from Availability model for wdays everywhere
+  ☐ You can change appointment at any time (block if within 24hours?)
+
+Bonus features:
+  ☐ Upload and display images
+  ☐ Ability to show providers by category
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ Ability to add, view, modify and delete availability @done (13-11-20 17:36) @project(Features)
+ ✔ Delete availability for a given day @done (13-11-20 17:13) @project(Core)
+ ✔ Availabilities should over-write if duplicate day of the week @done (13-11-20 17:13) @project(Core)
  ✔ Should have buttons to go straight to booking appointment from card on providers index. Provider show is useless. @done (13-11-20 13:20) @project(Not great things)
  ✔ There's too much space between "cards" @done (13-11-20 13:15) @project(Visual)
  ✔ The notices are not nearly obvious enough @done (13-11-20 13:15) @project(Visual)
