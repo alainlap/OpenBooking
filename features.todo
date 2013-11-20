@@ -3,15 +3,19 @@ Core:
     ☐ Go to index, shows form with either "add" or "edit" button depending on whether exists (post or patch to appropriate paths respectively)
   ☐ Show availability and booked slots when booking appointments
   ☐ Delete availability for a given day (set to nil?)
+  ☐ Categories display not hooked up at all
+  ☐ Availabilities should over-write if duplicate day of the week
 
 Broken things:
 
 Visual:
   ☐ The notices are not nearly obvious enough
   ☐ The error sections are hideous
+  ☐ There's too much space between "cards"
 
 Not great things:
   ☐ The availabilities should probably display inside the provider section in the user profile
+  ☐ It shows past appointments (make an archive?)
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
  ✔ Auto-login on signup @done (13-11-19 19:39) @project(Broken things)

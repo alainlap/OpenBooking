@@ -1,5 +1,26 @@
 <h1>New appointment with <%= @provider.name %></h1>
 
+<hr>
+<div class="h-50">
+	<h3><%= "#{@provider.name} is available at these times:" %></h3>
+	<% wdays.each do |d| %>
+		<% dx = @provider.availabilities.find_by_day(d[0]) %>
+		<% unless dx.nil? %>
+			<strong><%= d[1].capitalize %></strong>: 
+			<%= format_time(dx.start_time) %> to
+			<%= format_time(dx.end_time) %><br>
+			<% end %>
+	<% end %>
+</div>
+
+<div class="h-50">
+	<%= "<h3>#{@provider.name} is already booked at these times:</h3>" if @provider.appointments.any? %>
+	<% @provider.appointments.each do |exist_appt| %>
+		<%= exist_appt.start_datetime %> to <%= exist_appt.end_datetime %>
+	<% end %>
+</div>
+
+<br><hr>
 <%= render 'form' %>
 
 <%= link_to 'Back', provider_path(@provider) %>
