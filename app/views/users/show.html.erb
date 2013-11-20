@@ -3,15 +3,17 @@
 <div class="card-wrapper">
 
 	<div class="card gray">
-		<em><h2>Basic profile</h2>
+		<em><h2>My Account</h2>
 		<p>This is your user account.</p></em> <br>
 		<p><strong>Email: </strong><%= @user.email %></p>
-		<p><strong>Username: </strong><%= @user.username %></p><br>
-		<%= link_to 'Edit', edit_user_path(@user) %>
+		<p><strong>Username: </strong><%= @user.username %></p>
+		<p><strong>Password: </strong>********</p><br>
+		<%= link_to 'Edit', edit_user_path(@user) %> 
+
 	</div>
 	
 	<div class="card gray">
-		<em><h2>Client profile</h2>
+		<em><h2>My Client profile</h2>
 		<p>This profile lets you book appointments with others on the site.</p></em> <br>
 		<% if @user.client.nil? %>
 			<%= link_to button_tag("Add a client profile"), new_user_client_path(@user) %>
@@ -21,7 +23,7 @@
 	</div>
 
 	<div class="card gray">
-		<em><h2>Provider Profile</h2>
+		<em><h2>My Provider Profile</h2>
 		<p>This profile lets others book appointments with you.</p></em><br>
 		<% if @user.provider.nil? %>
 			<%= link_to button_tag("Add a provider profile"), new_user_provider_path(@user) %>
@@ -33,7 +35,7 @@
 	<% unless @user.provider.nil? %>
 
 		<div class="card gray">
-			<em><h2>Provider Availability</h2>
+			<em><h2>My Provider Availability</h2>
 			<p>These availabilities will be shown to your clients</p></em><br>
 
 			<% if @user.provider.availabilities.empty? %>
@@ -47,6 +49,7 @@
 						<%= format_time(dx.end_time) %><br>
 						<% end %>
 				<% end %>
+				<br>
 				<%= link_to "Edit", new_user_provider_availability_path(@user, @user.provider) %>
 			<% end %>
 		</div>

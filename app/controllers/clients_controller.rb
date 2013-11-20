@@ -19,7 +19,7 @@ class ClientsController < ApplicationController
     @client.user_id = current_user.id
 
     if @client.save
-      redirect_to user_path(@user), notice: 'Client was successfully created.'
+      redirect_to user_path(@user), notice: 'Client profile was successfully created.'
     else
       render action: 'new'
     end
@@ -27,7 +27,7 @@ class ClientsController < ApplicationController
 
   def update
     if @client.update(client_params)
-      redirect_to user_path(@user), notice: 'Client was successfully updated.'
+      redirect_to user_path(@user), notice: 'Client profile was successfully updated.'
     else
       render action: 'edit'
     end

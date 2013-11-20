@@ -15,29 +15,29 @@ types.each do |t|
 end
 	
 User.create(
-	username: "jhenrietta",
+	username: "test1",
 	email: "jhen@gmail.com",
 	password: "test",
 	password_confirmation: "test"
 	)
 
 User.create(
-	username: "jamesbond",
+	username: "test2",
 	email: "007@mi6.gov.uk",
 	password: "test",
 	password_confirmation: "test"
 	)
 
 User.create(
-	username: "jerry",
+	username: "test3",
 	email: "jerry@email.com",
 	password: "test",
 	password_confirmation: "test"
 	)
 
 User.create(
-	username: "katrina",
-	email: "katrina@email.com",
+	username: "test4",
+	email: "mj@email.com",
 	password: "test",
 	password_confirmation: "test"
 	)
@@ -53,6 +53,16 @@ Client.create(
 	)
 
 Client.create(
+	name: "Jim Bond",
+	address: "123 Yonge St.",
+	postal_code: "90210",
+	city: "Ottawa",
+	province: "ON",
+	phone_number: "(416) 123-4567",
+	user_id: 2
+	)
+
+Client.create(
 	name: "Katrina",
 	address: "123 Yonge St.",
 	postal_code: "90210",
@@ -63,7 +73,7 @@ Client.create(
 	)
 
 Provider.create(
-	name: "James Bond",
+	name: "Dr. James Bond",
 	address: "1298 Mill St.",
 	postal_code: "L4N 7B2",
 	city: "Kingston",
@@ -83,10 +93,25 @@ Provider.create(
 	province: "ON",
 	phone_number: "(416) 133-4567",
 	website: "www.jamesbond.com",
-	description: "talk show host",
+	description: "world's best psychologist",
 	type_id: 5,
 	user_id: 3
 	)
+
+Provider.create(
+	name: "Michael Jordan",
+	address: "1 Jordan Circle",
+	postal_code: "L4N 7B2",
+	city: "Chicago",
+	province: "AB",
+	phone_number: "(555) 555-4567",
+	website: "www.mj.com",
+	description: "retired basketball player and inspirational speaker",
+	type_id: 7,
+	user_id: 4
+	)
+
+# Dr. James Bond's Availability
 
 Availability.create(
 	day: 1,
@@ -121,4 +146,42 @@ Availability.create(
 	start_time: 9,
 	end_time: 17,
 	provider_id: 1
+	)
+
+
+# Jerry Springer's Availability
+
+Availability.create(
+	day: 1,
+	start_time: 12,
+	end_time: 17,
+	provider_id: 2
+	)
+
+Availability.create(
+	day: 2,
+	start_time: 10,
+	end_time: 17,
+	provider_id: 2
+	)
+
+Availability.create(
+	day: 3,
+	start_time: 10,
+	end_time: 17,
+	provider_id: 2
+	)
+
+Availability.create(
+	day: 4,
+	start_time: 9,
+	end_time: 15,
+	provider_id: 2
+	)
+
+Availability.create(
+	day: 5,
+	start_time: 9,
+	end_time: 16,
+	provider_id: 2
 	)

@@ -1,13 +1,12 @@
-<strong><p><%= @user.provider.name %></p>
-<p><%= @user.provider.type.name %></p></strong>
+<strong><p><%= @user.provider.name %></strong> |  
+<%= @user.provider.type.name %></p>
 <p><%= @user.provider.description %></p><br>
 
-<p><%= @user.provider.address %></p>
+<small><p><%= @user.provider.address %></p>
 <p><%= @user.provider.city %>, <%= @user.provider.province %>,&nbsp;&nbsp;<%= @user.provider.postal_code %></p>
-<p><%= @user.provider.phone_number %></p><br>
-
+<p><%= @user.provider.phone_number %></p>
 <p><%= @user.provider.user.email %></p>
-<p><%= @user.provider.website %></p><br>
+<p><%= @user.provider.website %></p><br></small>
 
 <%= link_to "Edit", edit_user_provider_path(@user, @user.provider) %> |
 <%= link_to "Delete", user_provider_path(@user, @user.provider), confirm: "Are you sure you want to delete provider #{@user.provider.name}", method: :delete %>

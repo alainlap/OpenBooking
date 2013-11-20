@@ -1,18 +1,17 @@
-<h1 class="h-full light">Choose a provider</h1>
+<h1 class="h-full light">Choose a provider for your appointment</h1>
 
 <div class="card-wrapper">
 	<% @providers.each do |provider| %>	
 		<a href="<%= provider_path(provider) %>" class="card gray">
 			<h2><%= provider.name %></h2>
 			<h3><%= provider.type.name %></h3>
-			<p><%= provider.description %></p><br>
+			<em><p><%= provider.description %></p></em><br>
 
-			<p><%= provider.address %></p>
+			<small><p><%= provider.address %></p>
 			<p><%= provider.city %>, <%= provider.province %>,&nbsp;&nbsp;<%= provider.postal_code %></p>
 			<p><%= provider.phone_number %></p><br>
-
 			<p><%= provider.user.email %></p>
-			<p><%= provider.website %></p>
+			<p><%= provider.website %></p></small>
 
 		</a>
 	<% end %>

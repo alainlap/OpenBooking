@@ -1,20 +1,25 @@
 
-<h2>Schedule an appointment with:<br> <%= @provider.name %></h2>
+<h1 class="h-full light">Provider: <%= @provider.name %> | <%= @provider.type.name %></h1>
 
-<p><strong>Address:</strong><%= @provider.address %></p>
+<div class="form-wrapper">
+<p><strong>Contact Information:</strong></p><br>
+<p><strong>Address: </strong><%= @provider.address %></p>
 
-<p><strong>Postal code:</strong><%= @provider.postal_code %></p>
+<p><strong>Postal code: </strong><%= @provider.postal_code %></p>
 
-<p><strong>City:</strong><%= @provider.city %></p>
+<p><strong>City: </strong><%= @provider.city %></p>
 
-<p><strong>Province:</strong><%= @provider.province %></p>
+<p><strong>Province: </strong><%= @provider.province %></p><br>
 
-<p><strong>Type:</strong><%= @provider.type.name %></p>
+
 
 <% if @user && @user.client.nil? %>
 	You need to <%= link_to "create a client profile", new_user_client_path(@user) %> to make an appointment.
 <% elsif @user && !(@provider == @user.provider) %>
   <%= link_to button_tag("Book appointment"), new_provider_appointment_path(@provider) %>
+<% elsif !@user %>
+	You need to have an account to make appointments. <%= link_to "create an account", new_user_path %>
 <% end %>
 <br>
 <%= link_to 'Back', root_path %>
+</div>

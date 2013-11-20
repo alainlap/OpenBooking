@@ -118,7 +118,7 @@ form {
 .left-nav li, .logo {
 	text-align: left;
 	display: inline-block;
-	padding: 0 1em;
+	padding: 0 .5em;
 }
 
 .card-wrapper {
@@ -193,7 +193,7 @@ a:hover, a:active {
 }
 
 .gray a:hover, .gray a:active {
-	color: rgb(230,230,230);
+	color: #5FBDCE;
 	}
 
 nav a, .logo {
@@ -218,7 +218,7 @@ a.logo {
 }
 
 a.card:hover, a.card:active {
-	background-color: #4892A0;
+	background-color: #5FBDCE;
 	color: black;
 }
 
@@ -240,4 +240,24 @@ a.card:hover, a.card:active {
 .form-wrapper .field,
 .form-wrapper .actions {
 	margin-top: 1em;
+}
+
+#notice,
+#alert,
+#success {
+	display: block;
+	padding: 1em 0;
+	text-align: center;
+}
+
+#notice {
+	background: #E6DB74;
+}
+
+#alert {
+	background: tomato;
+}
+
+#success {
+	background: lightgreen;
 }
