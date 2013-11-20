@@ -2,36 +2,46 @@
 
 <div class="form-wrapper">
 
-	<h2>Client Appointments</h2>
-	<% @i_am_client_appointments.each do |appointment| %>
-		
-		<div class="card gray">
-		
-			<h2><%= appointment.start_datetime.strftime("%A, %b %e") %></h2>
-			<h3><%= appointment.start_datetime.strftime("%I:%M %p") %> - <%= appointment.end_datetime.strftime("%I:%M %p") %></h3><br>
-			<h3>Appointment with <%= appointment.provider.name %></h3>
-			<p><strong>Reason: </strong><%= appointment.reason %></p>
-			<p><strong>Description: </strong><%= appointment.description %></p><br>
-			<p><%= link_to "Edit", edit_user_appointment_path(@user, appointment) %> |
-				<%= link_to "Delete", user_appointment_path(@user, appointment), confirm: "Are you sure you want to delete your appointment?", method: :delete %>
-			</p>
-		</div>
-
+	<% if @user.client %>
+		<h2>Client Appointments</h2>
+		<% if @i_am_client_appointments.empty? %>
+			<p>You have no appointments.</p>
+		<% end %>
+		<% @i_am_client_appointments.each do |appointment| %>
+			
+			<div class="card gray">
+			
+				<h2><%= appointment.start_datetime.strftime("%A, %b %e") %></h2>
+				<h3><%= appointment.start_datetime.strftime("%I:%M %p") %> - <%= appointment.end_datetime.strftime("%I:%M %p") %></h3><br>
+				<h3>Appointment with <%= appointment.provider.name %></h3>
+				<p><strong>Reason: </strong><%= appointment.reason %></p>
+				<p><strong>Description: </strong><%= appointment.description %></p><br>
+				<p><%= link_to "Edit", edit_user_appointment_path(@user, appointment) %> |
+					<%= link_to "Delete", user_appointment_path(@user, appointment), confirm: "Are you sure you want to delete your appointment?", method: :delete %>
+				</p>
+			</div>
+		<% end %>
+		<br>
 	<% end %>
 
-	<h2>Provider Appointments</h2>
+	<% if @user.provider %>
+		<h2>Provider Appointments</h2>
+		<% if @i_am_client_appointments.empty? %>
+			<p>No one has booked an appointment with you.</p>
+		<% end %>
 
-	<% @i_am_provider_appointments.each do |appointment| %>
-		<div class="card gray">
-		
-			<h2><%= appointment.start_datetime.strftime("%A, %b %e") %></h2>
-			<h3><%= appointment.start_datetime.strftime("%I:%M %p") %> - <%= appointment.end_datetime.strftime("%I:%M %p") %></h3><br>
-			<h3>Appointment with <%= appointment.client.name %></h3>
-			<p><strong>Reason: </strong><%= appointment.reason %></p>
-			<p><strong>Description: </strong><%= appointment.description %></p><br>
-			<p><%= link_to "Edit", edit_user_appointment_path(@user, appointment) %> |
-			<%= link_to "Delete", user_appointment_path(@user, appointment), confirm: "Are you sure you want to delete your appointment?", method: :delete %>
-		</p>
-		</div>
+		<% @i_am_provider_appointments.each do |appointment| %>
+			<div class="card gray">
+			
+				<h2><%= appointment.start_datetime.strftime("%A, %b %e") %></h2>
+				<h3><%= appointment.start_datetime.strftime("%I:%M %p") %> - <%= appointment.end_datetime.strftime("%I:%M %p") %></h3><br>
+				<h3>Appointment with <%= appointment.client.name %></h3>
+				<p><strong>Reason: </strong><%= appointment.reason %></p>
+				<p><strong>Description: </strong><%= appointment.description %></p><br>
+				<p><%= link_to "Edit", edit_user_appointment_path(@user, appointment) %> |
+				<%= link_to "Delete", user_appointment_path(@user, appointment), confirm: "Are you sure you want to delete your appointment?", method: :delete %>
+			</p>
+			</div>
+		<% end %>
 	<% end %>
 </div>

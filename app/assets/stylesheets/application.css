@@ -266,7 +266,7 @@ a.card:hover, a.card:active {
 }
 
 #notice {
-	background: #E6DB74;
+	background: #FACC44;
 }
 
 #alert {
@@ -274,7 +274,7 @@ a.card:hover, a.card:active {
 }
 
 #success {
-	background: lightgreen;
+	background: white;
 }
 
 #error_explanation {
