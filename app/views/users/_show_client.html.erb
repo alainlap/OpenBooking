@@ -1,6 +1,8 @@
-<strong><p><%= @user.client.name %></p></strong>
+<strong><p><%= @user.client.name.upcase %></p></strong><br>
+<p><strong>Address:</strong></p>
 <p><%= @user.client.address %></p>
-<p><%= @user.client.city %>, <%= @user.client.province %>,&nbsp;&nbsp;<%= @user.client.postal_code %></p>
+<p><%= @user.client.city %>, <%= @user.client.province %>,&nbsp;&nbsp;<%= @user.client.postal_code %></p><br>
+<p><strong>Phone Number:</strong></p>
 <p><%= @user.client.phone_number %></p><br>
 
 <%= link_to "Edit", edit_user_client_path(@user, @user.client) %> |

@@ -2,7 +2,7 @@
 
 <div class="card-wrapper">
 	<% @providers.each do |provider| %>	
-		<a href="<%= provider_path(provider) %>" class="card light">
+		<a href="<%= provider_path(provider) %>" class="card gray">
 			<h2><%= provider.name %></h2>
 			<h3><%= provider.type.name %></h3>
 			<p><%= provider.description %></p><br>

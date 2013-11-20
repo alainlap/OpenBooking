@@ -1,5 +1,7 @@
-<h1>New appointment with <%= @provider.name %></h1>
+<h1 class="h-full light">New appointment with <%= @provider.name %></h1>
 
+<div class="form-wrapper">
 <%= render 'form' %>
 
 <%= link_to 'Back', provider_path(@provider) %>
+</div>

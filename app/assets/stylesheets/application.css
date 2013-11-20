@@ -12,7 +12,7 @@
  *= require_tree .
  */
 
-html,body,div,span,h1,h2,h3,h4,h5,h6,p,a,img,strong,ol,ul,li,fieldset,form,label,article,aside,footer,header,nav,section,main,div {
+html,body,div,span,h1,h2,h3,h4,h5,h6,p,a,img,strong,ol,ul,li,fieldset,form,label,article,aside,footer,header,nav,section,main {
 	margin: 0;
 	padding: 0;
 
@@ -23,13 +23,14 @@ html,body,div,span,h1,h2,h3,h4,h5,h6,p,a,img,strong,ol,ul,li,fieldset,form,label
 }
 
 * {
-	font-family: 'Helvetica Neue', 'Helvetica', 'sans serif';
+	font-family: 'Roboto Condensed', sans-serif;
 }
 
 nav {
-	min-height: 4.5em;
+	/*min-height: 4.5em;*/
 	font-size: 1em;
 	vertical-align: middle;
+	padding: 1.5em 0;
 }
 
 input, label {
@@ -37,10 +38,206 @@ input, label {
 }
 
 h1 {
-	padding: 0.5em;
+	font-size: 1.8em;
+	padding: 0.5em 1em;
 	margin-bottom: 0.5em;
 }
 
 h2 {
 	padding-bottom: 0.25em;
+}
+
+
+.container {
+	display: block;
+}
+
+.container:before,.container:after {
+	content: "";
+	display: table;
+}
+
+.container:after {
+	clear: both;
+}
+
+.container {
+	zoom: 1;
+}
+
+.h-full {
+	width: 100%;
+}
+
+.v-full {
+	height: 100%;
+}
+
+.h-50 {
+	width: 49%;
+	display: inline-block;
+}
+
+.v-50 {
+	min-height: 50%;
+}
+
+.left {
+	text-align: left;
+}
+
+.left-nav,
+.logo,
+.login,
+.login form .field,
+.login form .actions,
+form {
+	display: inline-block;
+}
+
+.login {
+	font-size: .8em;
+	text-align: right;
+	float: right;
+}
+
+.login {
+	/*border-radius: 5px;*/	
+	padding-right: 1.5em;
+}
+
+.logo {
+	/*width: 15%;*/
+	/*min-width: 185px;*/
+}
+
+.left-nav {
+	/*min-width: 315px;*/
+}
+
+.left-nav li, .logo {
+	text-align: left;
+	display: inline-block;
+	padding: 0 1em;
+}
+
+.card-wrapper {
+	margin: 3em;
+	text-align: center;
+}
+
+.card {
+	display: inline-block;
+	width: 350px;
+	height: 350px;
+	margin: .5em;
+	padding: 1.5em;
+	/*border-radius: 5px;*/
+	text-decoration: none;
+	text-align: left;
+}
+
+.profile-wrapper, .card {
+	vertical-align: top;
+}
+
+.user-profile {
+	width: 90%;
+ 	margin: 0 5%;
+	/*border-radius: 5px;*/
+	padding: 1.5em;
+}
+
+a {
+	color: #015666;
+}
+
+a:hover, a:active {
+	color: #37B6CE;
+}
+
+.dark {
+	background-color: #015666;
+	color: white;
+}
+
+.dark a {
+	color: #80EBFF;
+}
+
+.dark a:hover, .dark a:active {
+	color: #37B6CE;
+}
+
+.light {
+	background-color: #5FBDCE;
+	color: black;
+}
+
+.light a {
+	color: white;
+}
+
+.light a:hover, .light a:active {
+	color: rgb(230,230,230);
+}
+
+.gray {
+	background-color: #E8E8E8;
+	color: black;
+}
+
+
+.gray a {
+	color: black;
+}
+
+.gray a:hover, .gray a:active {
+	color: rgb(230,230,230);
+	}
+
+nav a, .logo {
+	text-decoration: none;
+}
+
+a.logo {
+	font-style: italic;
+	font-weight: bold;
+	font-size: 2.5em;
+	color: white;
+	font-variant: small-caps;
+}
+
+.left-nav, .logo {
+	font-size: 1.25em;
+}
+
+.card, .user-profile {
+		border:1px solid #B3B1B3;
+		
+}
+
+a.card:hover, a.card:active {
+	background-color: #4892A0;
+	color: black;
+}
+
+.register {
+	text-align: left;
+	padding-top: .4em;
+}
+
+.form-wrapper {
+	padding: 2em;
+	margin: auto auto;
+}
+
+.form-wrapper input {
+	width: 20em;
+	height: 2em;
+}
+
+.form-wrapper .field,
+.form-wrapper .actions {
+	margin-top: 1em;
 }
