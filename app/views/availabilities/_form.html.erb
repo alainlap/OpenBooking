@@ -1,6 +1,6 @@
 <% @availabilities.each do |a| %>
 
-<%= form_tag("/users/#{@user.id}/providers/#{@provider.id}/availabilitis/#{a.id}", method: :patch) do %>
+<%= form_tag("/users/#{@user.id}/providers/#{@provider.id}/availabilities/#{a.id}", method: :patch) do %>
 
 		<h3><%= Availability::WDAYS[a.day][0] %></h3>
 		<p>
@@ -14,6 +14,6 @@
 			<p><%= submit_tag "Update" %></p><br>
 	<% end %>
 <% end %>
-
+<br>
 <%= link_to "Done", user_path(@user) %>
 

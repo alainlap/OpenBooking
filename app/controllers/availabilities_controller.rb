@@ -2,25 +2,26 @@ class AvailabilitiesController < ApplicationController
 	before_action :set_provider
 
 	def index
-		@availabilities = @provider.availabilities
+		@availabilities = @provider.availabilities.order(:id)
 	end
 
 	def update
-		@availability = Availability.new(availabilities_params)
-		if @availability.save
-    	render action: 'new', notice: 'Availability successfully saved.'
+		@availability = Availability.find(availabilities_params[:id])
+		if @availability.update(availabilities_params)
+    	redirect_to user_provider_availabilities_path(@user, @provider), notice: 'Availability successfully saved.'
   	else
-  	  render action: 'new', notice: 'Sorry, please try again.'
+  	  redirect_to user_provider_availabilities_path(@user, @provider), alert: 'Sorry, please try again.'
   	end
 	end
 
 	def destroy
+		@availability = Availability.find(availabilities_params[:id])
 		@availability.destroy
 	end
 
 	private
 	def availabilities_params
-		params.permit(:day, :start_time, :end_time, :provider_id)
+		params.permit(:day, :start_time, :end_time, :provider_id, :id)
 	end
 
 	def set_provider
