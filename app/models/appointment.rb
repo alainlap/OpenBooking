@@ -21,19 +21,47 @@ class Appointment < ActiveRecord::Base
   end
 
   def duplicate_provider_booking?
-  	errors.add(:start_datetime, "Your end time overlaps an existing appointment.") unless self.provider.appointments.where("? > start_datetime AND ? <= end_datetime", end_datetime, end_datetime).empty?
 
-  	errors.add(:start_datetime, "Your start time overlaps an existing appointment.") unless self.provider.appointments.where("? >= start_datetime AND ? < end_datetime", start_datetime, start_datetime).empty?
+    relevant_appointments = if id.present?
+      provider.appointments.where("id != ?", id)
+    else
+      provider.appointments
+    end
 
-  	errors.add(:start_datetime, "Your appointment completely overlaps an existing appointment.") unless self.provider.appointments.where("? <= start_datetime AND ? >= end_datetime", start_datetime, end_datetime).empty?
+    if relevant_appointments.where("? > start_datetime AND ? <= end_datetime", end_datetime, end_datetime).present?
+      errors.add(:start_datetime, "Your end time overlaps an existing appointment.") 
+    end
+
+  	if relevant_appointments.where("? >= start_datetime AND ? < end_datetime", start_datetime, start_datetime).present?
+      errors.add(:start_datetime, "Your start time overlaps an existing appointment.") 
+    end
+
+  	if relevant_appointments.where("? <= start_datetime AND ? >= end_datetime", start_datetime, end_datetime).present?
+      errors.add(:start_datetime, "Your appointment completely overlaps an existing appointment.") 
+    end
   end
 
    def duplicate_client_booking?
-  	return errors.add(:start_datetime, "You have another appointment at this time.") unless self.client.appointments.where("? > start_datetime AND ? <= end_datetime", end_datetime, end_datetime).empty?
+    
+    relevant_appointments = if id.present?
+      client.appointments.where("id != ?", id)
+    else
+      client.appointments
+    end
 
-  	return errors.add(:start_datetime, "You have another appointment at this time.") unless self.client.appointments.where("? >= start_datetime AND ? < end_datetime", start_datetime, start_datetime).empty?
+    if relevant_appointments.where("? > start_datetime AND ? <= end_datetime", end_datetime, end_datetime).present?
+    	return errors.add(:start_datetime, "You have another appointment at this time.") 
+    end
 
-  	errors.add(:start_datetime, "You have another appointment at this time.") unless self.client.appointments.where("? <= start_datetime AND ? >= end_datetime", start_datetime, end_datetime).empty?
+    if relevant_appointments.where("? >= start_datetime AND ? < end_datetime", start_datetime, start_datetime).present?
+    	return errors.add(:start_datetime, "You have another appointment at this time.") 
+    end
+
+    if relevant_appointments.where("? <= start_datetime AND ? >= end_datetime", start_datetime, end_datetime).present?
+    	errors.add(:start_datetime, "You have another appointment at this time.") 
+    end
+
+    end
+
   end
-end
 

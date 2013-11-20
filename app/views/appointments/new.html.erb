@@ -22,14 +22,15 @@
 	<div class="h-50 avail-table">
 		<h3><%= "#{@provider.name} is already booked at these times:" if @provider.appointments.any? %></h3>
 		<% @provider.appointments.each do |exist_appt| %>
-			<%= exist_appt.start_datetime.to_date %> from <%= exist_appt.start_datetime.strftime("%I:%M %p") %> to <%= exist_appt.end_datetime.strftime("%I:%M %p") %>
+			<%= exist_appt.start_datetime.to_date %> from <%= exist_appt.start_datetime.strftime("%I:%M %p") %> to <%= exist_appt.end_datetime.strftime("%I:%M %p") %> <br>
 		<% end %>
 	</div>
 
 	<br><hr>
 
-	<%= render 'form' %>
+	<%= render 'new_form' %>
+
 <% end %>
 
-<%= link_to 'Back', provider_path(@provider) %>
+<%= link_to 'Back', providers_path %>
 </div>

@@ -12,9 +12,6 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new
   end
 
-  def edit
-  end
-
   def create
     @appointment = Appointment.new(appointment_params)
     @appointment.provider_id = @provider.id
@@ -28,9 +25,16 @@ class AppointmentsController < ApplicationController
     end
   end
 
+  def edit
+    @provider = @appointment.provider
+  end
+
   def update
+    @provider = @appointment.provider
+    @appointment.end_datetime = @appointment.start_datetime + params[:duration].to_i.hour
+
     if @appointment.update(appointment_params)
-      redirect_to @appointment, notice: 'Appointment was successfully updated.'
+      redirect_to user_appointments_path(@user), notice: 'Appointment was successfully updated.'
     else
       render action: 'edit'
     end

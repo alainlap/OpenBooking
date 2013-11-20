@@ -46,9 +46,10 @@ h2 {
 	padding-bottom: 0.25em;
 }
 
-button {
+button, input[type="submit"] {
 	font-size: 1em;
 }
+
 
 .container {
 	display: block;
@@ -245,6 +246,10 @@ a.card:hover, a.card:active {
 .form-wrapper input {
 	width: 20em;
 	height: 2em;
+}
+
+.form-wrapper input[type="submit"] {
+	width: 10em;
 }
 
 .form-wrapper .field,
