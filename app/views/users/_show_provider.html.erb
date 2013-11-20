@@ -1,8 +1,8 @@
 <strong><p><%= @user.provider.name %></strong> |  
 <%= @user.provider.type.name %></p>
-<p><%= @user.provider.description %></p><br>
+<small><p><%= @user.provider.description %></p><br>
 
-<small><p><%= @user.provider.address %></p>
+<p><%= @user.provider.address %></p>
 <p><%= @user.provider.city %>, <%= @user.provider.province %>,&nbsp;&nbsp;<%= @user.provider.postal_code %></p>
 <p><%= @user.provider.phone_number %></p>
 <p><%= @user.provider.user.email %></p>

@@ -1,19 +1,37 @@
 <h1 class="h-full light">Choose a provider for your appointment</h1>
 
+	<% if !@user %>
+		<div id="notice">
+			You need to have an account to make appointments: <%= link_to "Create an account", new_user_path %>
+		</div>
+	<% elsif @user && @user.client.nil? %>
+		<div id="notice">
+			You need to <%= link_to "create a client profile", new_user_client_path(@user) %> to make an appointment.
+		</div>
+	<% end %>
+
 <div class="card-wrapper">
 	<% @providers.each do |provider| %>	
-		<a href="<%= provider_path(provider) %>" class="card gray">
+		<div class="card gray">
 			<h2><%= provider.name %></h2>
 			<h3><%= provider.type.name %></h3>
-			<em><p><%= provider.description %></p></em><br>
+			<small><em><p><%= provider.description %></p></em><br>
 
-			<small><p><%= provider.address %></p>
+			<p><%= provider.address %></p>
 			<p><%= provider.city %>, <%= provider.province %>,&nbsp;&nbsp;<%= provider.postal_code %></p>
 			<p><%= provider.phone_number %></p><br>
 			<p><%= provider.user.email %></p>
-			<p><%= provider.website %></p></small>
+			<p><%= provider.website %></p></small> <br>
 
-		</a>
+			<% if @user && !(provider == @user.provider) %>
+			  <%= link_to button_tag("Book appointment"), new_provider_appointment_path(provider) %>
+		  <% elsif @user && (provider == @user.provider) %>
+		  	<p class="dark-font">This is you!</p>
+			<% end %>
+
+		</div>
 	<% end %>
+	<div class="card spacer"></div>
+	<div class="card spacer"></div>
 </div>
 

@@ -8,16 +8,15 @@ Core:
 Broken things:
 
 Visual:
-  ☐ The notices are not nearly obvious enough
-  ☐ The error sections are hideous
-  ☐ There's too much space between "cards"
 
 Not great things:
-  ☐ The availabilities should probably display inside the provider section in the user profile
   ☐ It shows past appointments (make an archive?)
-  ☐ Should have buttons to go straight to booking appointment from card on providers index. Provider show is useless.
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ Should have buttons to go straight to booking appointment from card on providers index. Provider show is useless. @done (13-11-20 13:20) @project(Not great things)
+ ✔ There's too much space between "cards" @done (13-11-20 13:15) @project(Visual)
+ ✔ The notices are not nearly obvious enough @done (13-11-20 13:15) @project(Visual)
+ ✔ The error sections are hideous @done (13-11-20 13:15) @project(Visual)
  ✔ Show availability and booked slots when booking appointments @done (13-11-19 20:33) @project(Core)
  ✔ Auto-login on signup @done (13-11-19 19:39) @project(Broken things)
  ✔ The hidden field tag in the form for availability does not work (not passing value to params?) @done (13-11-19 19:30) @project(Broken things)

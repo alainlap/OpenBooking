@@ -1,11 +1,11 @@
 <%= form_for([@provider, @appointment]) do |f| %>
   <% if @appointment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+      <h2>Sorry, we can't schedule your appointment because:</h2>
 
       <ul>
       <% @appointment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <li><%= msg.gsub("Start datetime ","") %></li>
       <% end %>
       </ul>
     </div>

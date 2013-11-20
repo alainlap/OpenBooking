@@ -40,13 +40,15 @@ input, label {
 h1 {
 	font-size: 1.8em;
 	padding: 0.5em 1em;
-	margin-bottom: 0.5em;
 }
 
 h2 {
 	padding-bottom: 0.25em;
 }
 
+button {
+	font-size: 1em;
+}
 
 .container {
 	display: block;
@@ -96,7 +98,7 @@ form {
 }
 
 .login {
-	font-size: .8em;
+	font-size: 1em;
 	text-align: right;
 	float: right;
 }
@@ -165,6 +167,10 @@ a:hover, a:active {
 	color: #80EBFF;
 }
 
+.dark-font {
+	color: #5FBDCE;
+}
+
 .dark a:hover, .dark a:active {
 	color: #37B6CE;
 }
@@ -214,12 +220,16 @@ a.logo {
 
 .card, .user-profile {
 		border:1px solid #B3B1B3;
-		
 }
 
 a.card:hover, a.card:active {
 	background-color: #5FBDCE;
 	color: black;
+}
+
+.spacer {
+	border:none;
+	height:0;
 }
 
 .register {
@@ -261,3 +271,24 @@ a.card:hover, a.card:active {
 #success {
 	background: lightgreen;
 }
+
+#error_explanation {
+	background-color: tomato;
+	padding: 1em;
+	border-radius: 5px;
+}
+
+#error_explanation li {
+	margin-left: 1em;
+}
+
+.field_with_errors {
+	color: tomato;
+	font-weight: bold;
+}
+
+.avail-table {
+	vertical-align: top;
+}
+
+

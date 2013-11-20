@@ -22,7 +22,7 @@ class AppointmentsController < ApplicationController
     @appointment.end_datetime = @appointment.start_datetime + params[:duration].to_i.hour
 
     if @appointment.save
-      redirect_to provider_path(@provider), notice: 'Appointment was successfully created.'
+      redirect_to user_appointments_path(@user), notice: 'Appointment was successfully created.'
     else
       render action: 'new'
     end
