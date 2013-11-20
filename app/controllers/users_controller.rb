@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      login(params[:username], params[:password], true)
+      login(user_params[:username], user_params[:password], false)
       redirect_to @user, notice: 'User was successfully created.'
     else
       render action: 'new'

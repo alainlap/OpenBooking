@@ -7,6 +7,8 @@ Core:
 Broken things:
   ☐ Auto-login on signup 
 
+Visual:
+  ☐ The notices are not nearly obvious enough
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
  ✔ The hidden field tag in the form for availability does not work (not passing value to params?) @done (13-11-19 19:30) @project(Broken things)

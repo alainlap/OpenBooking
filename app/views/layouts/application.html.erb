@@ -11,7 +11,7 @@
   <nav class="container h-full dark">
       <%= link_to "OpenBooking", root_path, class: "logo" %>
     <ul class="left-nav">
-      <li><%= link_to "Browse", root_path %></li>
+      <li><%= link_to "New booking", root_path %></li>
       <li><%= link_to "Categories", root_path %></li>
       <% if current_user %>
       <li><%= link_to "My Appointments", user_appointments_path(current_user)%></li>
