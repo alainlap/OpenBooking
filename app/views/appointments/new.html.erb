@@ -14,9 +14,9 @@
 </div>
 
 <div class="h-50">
-	<%= "<h3>#{@provider.name} is already booked at these times:</h3>" if @provider.appointments.any? %>
+	<h3><%= "#{@provider.name} is already booked at these times:" if @provider.appointments.any? %></h3>
 	<% @provider.appointments.each do |exist_appt| %>
-		<%= exist_appt.start_datetime %> to <%= exist_appt.end_datetime %>
+		<%= exist_appt.start_datetime.to_date %> from <%= exist_appt.start_datetime.strftime("%I:%M%p") %> to <%= exist_appt.end_datetime.strftime("%I:%M%p") %>
 	<% end %>
 </div>
 
