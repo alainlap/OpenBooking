@@ -1,9 +1,6 @@
+<% wdays.each do |d| %>
 
-
-<%= form_tag(".", method: :post) do %>
-
-	
-	<% wdays.each do |d| %>
+<%= form_tag("/users/#{@user.id}/providers/#{@provider.id}/availabilities", method: :post) do %>
 
 		<h3><%= d[1].capitalize %></h3>
 		<%= hidden_field_tag 'day', "#{d[0]}" %>
@@ -19,5 +16,5 @@
 	<% end %>
 <% end %>
 
-<%= link_to "Cancel", user_path(@user) %>
+<%= link_to "Done", user_path(@user) %>
 

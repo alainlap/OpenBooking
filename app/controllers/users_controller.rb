@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
     if @user.save
       login(user_params[:username], user_params[:password], false)
-      redirect_to @user, notice: 'User was successfully created.'
+      redirect_to @user, notice: 'Account successfully created. Welcome!'
     else
       render action: 'new'
     end
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: 'User was successfully updated.'
+      redirect_to @user, notice: 'Account successfully updated.'
     else
       render action: 'edit'
     end

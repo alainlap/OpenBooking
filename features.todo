@@ -1,19 +1,28 @@
 Core:
   ☐ Ability to add, view, modify and delete availability
     ☐ Go to index, shows form with either "add" or "edit" button depending on whether exists (post or patch to appropriate paths respectively)
-  ☐ Show availability and booked slots when booking appointments
-  ☐ Delete availability for a given day (set to nil?)
+  ☐ Delete availability for a given day
+  ☐ Categories display not hooked up at all
+  ☐ Availabilities should over-write if duplicate day of the week
 
 Broken things:
-  ☐ Auto-login on signup 
 
 Visual:
   ☐ The notices are not nearly obvious enough
+  ☐ The error sections are hideous
+  ☐ There's too much space between "cards"
+
+Not great things:
+  ☐ The availabilities should probably display inside the provider section in the user profile
+  ☐ It shows past appointments (make an archive?)
+  ☐ Should have buttons to go straight to booking appointment from card on providers index. Provider show is useless.
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ Show availability and booked slots when booking appointments @done (13-11-19 20:33) @project(Core)
+ ✔ Auto-login on signup @done (13-11-19 19:39) @project(Broken things)
  ✔ The hidden field tag in the form for availability does not work (not passing value to params?) @done (13-11-19 19:30) @project(Broken things)
- ✔ Validate appointment bookings against: @done (13-11-19 19:04) @project(Core)
- ✔ availability @done (13-11-19 19:04) @project(Core)
+ ✔ user identity (can't book with yourself) @done (13-11-19 19:04) @project(Core)
  ✔ existing appointments for provider @done (13-11-19 19:04) @project(Core)
  ✔ existing appointments for client @done (13-11-19 19:04) @project(Core)
- ✔ user identity (can't book with yourself) @done (13-11-19 19:04) @project(Core)
+ ✔ availability @done (13-11-19 19:04) @project(Core)
+ ✔ Validate appointment bookings against: @done (13-11-19 19:04) @project(Core)
