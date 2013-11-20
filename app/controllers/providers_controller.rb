@@ -1,14 +1,11 @@
 class ProvidersController < ApplicationController
-  before_action :set_provider, only: [:show, :edit, :update, :destroy]
+  before_action :set_provider, only: [:edit, :update, :destroy]
   before_filter :load_types, :set_user
-  skip_before_filter :require_login, only: [:index, :show]
+  skip_before_filter :require_login, only: [:index]
   before_action :disallow_duplicate_providers, only: [:new]
 
   def index
     @providers = Provider.all
-  end
-
-  def show
   end
 
   def new
