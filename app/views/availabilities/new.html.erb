@@ -1,8 +1,28 @@
 <h1 class="h-full light">When are you available for bookings?</h1>
 
 <div class="form-wrapper">
-<h1>Add New Availabilities</h1>
+<h1>Edit Availabilities</h1>
 
-<%= render 'form' %>
+<% wdays.each do |d| %>
+
+<%= form_tag("/users/#{@user.id}/providers/#{@provider.id}/availabilities", method: :post) do %>
+
+		<h3><%= d[1].capitalize %></h3>
+		<%= hidden_field_tag 'day', "#{d[0]}" %>
+		<p>
+			<%= label_tag "Start Time" %>
+			<%= select_tag :start_time, options_for_select(ftime, 9) %>
+		</p>
+		<p>
+			<%= label_tag "End Time" %>
+			<%= select_tag :end_time, options_for_select(ftime, 17) %>
+		</p>
+			<p><%= submit_tag "Save" %></p><br>
+	<% end %>
+<% end %>
+
+<%= link_to "Done", user_path(@user) %>
+
+
 </div>
 

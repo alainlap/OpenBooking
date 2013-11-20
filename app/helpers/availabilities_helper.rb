@@ -1,6 +1,6 @@
 module AvailabilitiesHelper
 	def ftime
-		(0..23).map do |x| 
+		x = (0..23).map do |x| 
 			if x == 0
 			 ["Midnight", x]				
 			elsif x > 0 && x < 12
@@ -11,6 +11,7 @@ module AvailabilitiesHelper
 			 ["#{x-12}:00 PM", x]
 			end
 		end
+		x.unshift(["None", nil])
 	end
 
 	def format_time(hour)

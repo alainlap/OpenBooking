@@ -9,7 +9,7 @@ OpenBooking::Application.routes.draw do
   resources :users, except: [:index, :destroy] do 
     resources :clients, except: [:index, :show]
     resources :providers, except: [:index, :show] do
-      resources :availabilities
+      resources :availabilities, only: [:index, :update]
     end
     resources :appointments, except: [:new, :create, :show]
   end

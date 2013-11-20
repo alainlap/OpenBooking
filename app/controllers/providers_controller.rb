@@ -19,6 +19,9 @@ class ProvidersController < ApplicationController
     @provider = Provider.new(provider_params)
     @provider.user_id = current_user.id
     if @provider.save
+      
+      Availability.initializer(@provider.id)
+
       redirect_to user_path(@user), notice: 'Provider profile successfully created.'
     else
       render action: 'new'

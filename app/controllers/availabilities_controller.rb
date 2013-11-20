@@ -1,11 +1,11 @@
 class AvailabilitiesController < ApplicationController
 	before_action :set_provider
 
-	def new
-
+	def index
+		@availabilities = @provider.availabilities
 	end
 
-	def create
+	def update
 		@availability = Availability.new(availabilities_params)
 		if @availability.save
     	render action: 'new', notice: 'Availability successfully saved.'
@@ -14,16 +14,8 @@ class AvailabilitiesController < ApplicationController
   	end
 	end
 
-	def edit
-		
-	end
-
-	def update
-		
-	end
-
 	def destroy
-		
+		@availability.destroy
 	end
 
 	private

@@ -11,6 +11,7 @@ Visual:
 
 Not great things:
   ☐ It shows past appointments (make an archive?)
+  ☐ use constant from Availability model for wdays
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
  ✔ Should have buttons to go straight to booking appointment from card on providers index. Provider show is useless. @done (13-11-20 13:20) @project(Not great things)

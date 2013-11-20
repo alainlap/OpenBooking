@@ -1,18 +1,17 @@
-<% wdays.each do |d| %>
+<% @availabilities.each do |a| %>
 
-<%= form_tag("/users/#{@user.id}/providers/#{@provider.id}/availabilities", method: :post) do %>
+<%= form_tag("/users/#{@user.id}/providers/#{@provider.id}/availabilitis/#{a.id}", method: :patch) do %>
 
-		<h3><%= d[1].capitalize %></h3>
-		<%= hidden_field_tag 'day', "#{d[0]}" %>
+		<h3><%= Availability::WDAYS[a.day][0] %></h3>
 		<p>
 			<%= label_tag "Start Time" %>
-			<%= select_tag :start_time, options_for_select(ftime, 9) %>
+			<%= select_tag :start_time, options_for_select(ftime, a.start_time ) %>
 		</p>
 		<p>
 			<%= label_tag "End Time" %>
-			<%= select_tag :end_time, options_for_select(ftime, 17) %>
+			<%= select_tag :end_time, options_for_select(ftime, a.end_time) %>
 		</p>
-			<p><%= submit_tag "Save" %></p><br>
+			<p><%= submit_tag "Update" %></p><br>
 	<% end %>
 <% end %>
 
