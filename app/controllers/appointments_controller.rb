@@ -17,7 +17,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params)
     @appointment.provider_id = @provider.id
     @appointment.client_id = @user.client.id
-    @appointment.end_datetime = @appointment.start_datetime + params[:duration].to_i.hour
+    @appointment.end_datetime = @appointment.start_datetime + (params[:duration].to_i).hour
 
     if @appointment.save
         redirect_to user_appointments_path(@user), flash: {success: 'Appointment was successfully created.'}

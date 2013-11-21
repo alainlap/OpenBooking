@@ -1,7 +1,6 @@
 Core features:
 
 Broken things:
- ☐ You can book appointments in the past (validate?)
  ☐ need validations on availabilities themselves
  ☐ can't book at 11pm (thinks it ends before it starts)
 Visual:
@@ -23,6 +22,7 @@ Bonus features:
   ☐ Appointments can be shorter than one hour
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ You can book appointments in the past (validate?) @done (13-11-21 14:46) @project(Broken things)
  ✔ show avails in edit appointment @done (13-11-21 13:12) @project(Broken things)
  ✔ You can't not have set up availabilities (change message in appt new to display if all nil) @done (13-11-21 13:11) @project(Broken things)
  ✔ possibly the viewing of availabilities? (nil means not avail now) @done (13-11-21 13:06) @project(Broken things)
