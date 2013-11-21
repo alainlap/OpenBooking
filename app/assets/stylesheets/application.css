@@ -26,6 +26,10 @@ html,body,div,span,h1,h2,h3,h4,h5,h6,p,a,img,strong,ol,ul,li,fieldset,form,label
 	font-family: 'Roboto Condensed', sans-serif;
 }
 
+body {
+
+}
+
 nav {
 	/*min-height: 4.5em;*/
 	font-size: 1em;
@@ -44,6 +48,23 @@ h1 {
 
 h2 {
 	padding-bottom: 0.25em;
+}
+
+button {
+	font-size: 1em;
+	text-decoration: none;
+	color: #666666;
+	border-radius: 3px;
+	padding: 0.5em 1em;
+	background: #FAFAFA;
+	border: solid 1px #EEEEEE;
+	display: inline-block;
+}
+
+button:hover {
+	background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+}
+
 }
 
 button, input[type="submit"] {
@@ -125,7 +146,7 @@ form {
 }
 
 .card-wrapper {
-	margin: 3em;
+	margin: 25px;
 	text-align: center;
 }
 
@@ -190,7 +211,7 @@ a:hover, a:active {
 }
 
 .gray {
-	background-color: #E8E8E8;
+	/*background-color: #E8E8E8;*/
 	color: black;
 }
 

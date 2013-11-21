@@ -24,7 +24,7 @@
 			<p><%= provider.website %></p></small> <br>
 
 			<% if @user && ( !(provider == @user.provider) && @user.client ) %>
-			  <%= link_to button_tag("Book appointment"), new_provider_appointment_path(provider) %>
+			  <%= link_to button_tag("Book appointment", class: "light"), new_provider_appointment_path(provider) %>
 		  <% elsif @user && (provider == @user.provider) %>
 		  	<p class="dark-font">This is you!</p>
 			<% end %>
