@@ -6,6 +6,7 @@ class Appointment < ActiveRecord::Base
 	validate :slot_available?
 	validate :duplicate_client_booking?
 	validate :duplicate_provider_booking?
+  validate :booking_into_past?
 
 	def slot_available?
     availability_on_day = self.provider.availabilities.find_by_day(start_datetime.wday)
@@ -60,8 +61,13 @@ class Appointment < ActiveRecord::Base
     if relevant_appointments.where("? <= start_datetime AND ? >= end_datetime", start_datetime, end_datetime).present?
     	errors.add(:start_datetime, "You have another appointment at this time") 
     end
-
-    end
-
   end
+
+  def booking_into_past?
+    if self.start_datetime < DateTime.now
+      errors.add(:start_datetime, "You cannot make an appointment in the past")
+    end
+  end
+
+end
 
