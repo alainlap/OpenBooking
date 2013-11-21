@@ -1,7 +1,7 @@
 module AvailabilitiesHelper
 	def ftime
-		x = (0..23).map do |x| 
-			if x == 0
+		x = (0..24).map do |x| 
+			if x == 0 || x == 24
 			 ["Midnight", x]				
 			elsif x > 0 && x < 12
 			 ["#{x}:00 AM", x]
@@ -15,7 +15,7 @@ module AvailabilitiesHelper
 	end
 
 	def format_time(hour)
-		if hour == 0
+		if hour == 0 || hour == 24
 			"Midnight"
 		elsif hour > 0 && hour < 12
 			"#{hour}:00 AM"

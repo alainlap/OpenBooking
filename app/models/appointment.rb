@@ -18,6 +18,7 @@ class Appointment < ActiveRecord::Base
 	 		errors.add(:start_datetime, "Your appointment starts too late") if start_datetime.seconds_since_midnight >=(availability_on_day.end_time * 3600)
 	    errors.add(:start_datetime, "Your appointment cannot end before it starts!") if end_datetime < start_datetime
 	    errors.add(:start_datetime, "Your appointment runs too late") if end_datetime.seconds_since_midnight > (availability_on_day.end_time * 3600)
+      errors.add(:start_datetime, "Overnight appointments are not supported.") if (end_datetime - 1.second).day != start_datetime.day
 	  end
   end
 
