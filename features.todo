@@ -3,6 +3,7 @@ Core features:
 Broken things:
  ☐ You can book appointments in the past (validate?)
  ☐ need validations on availabilities themselves
+ ☐ can't book at 11pm (thinks it ends before it starts)
 Visual:
  ☐ Appointments edit is pretty cluttered
 Not great things:
@@ -11,11 +12,15 @@ Not great things:
   ☐ You can change appointment at any time (block if within 24hours?)
   ☐ Before filters don't properly restrict views only for users with client/provider profiles (only done with button hide/show)
   ☐ should have tests 
+  ☐ appointments are sorted by id, not start time, whenever they display
 
 Bonus features:
   ☐ Upload and display images
   ☐ Ability to show providers by category
   ☐ Nice little calendar for datetime picker
+  ☐ Multiple availabilities for the same day (e.g. morning and evening)
+  ☐ If a provider books with someone else as a client, that appointment time is not available to clients booking with them (validation and shows in list of existing appointments)
+  ☐ Appointments can be shorter than one hour
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
  ✔ show avails in edit appointment @done (13-11-21 13:12) @project(Broken things)
