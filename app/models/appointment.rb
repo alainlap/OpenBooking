@@ -64,8 +64,8 @@ class Appointment < ActiveRecord::Base
   end
 
   def booking_into_past?
-    if self.start_datetime < DateTime.now
-      errors.add(:start_datetime, "You cannot make an appointment in the past")
+    if self.start_datetime.day <= DateTime.now.utc.day
+      errors.add(:start_datetime, "You cannot make an appointment any earlier than tomorrow")
     end
   end
 
