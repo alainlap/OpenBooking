@@ -2,35 +2,10 @@
 
 <div class="form-wrapper">
 
-<% if @provider.availabilities.empty? %>
-	<h3>Sorry, <%= @provider.name %> has not set up our booking system.</h3>
-		<p>Please contact him/her directly at <%= @provider.phone_number %> or <%= @provider.user.email %>.</p> <br>
-<% else %>
-	<hr>
-	<div class="h-50">
-		<h3><%= "#{@provider.name} is available at these times:" %></h3>
-		<% wdays.each do |d| %>
-			<% dx = @provider.availabilities.find_by_day(d[0]) %>
-			<% unless dx.nil? || dx.start_time.nil? || dx.end_time.nil? %>
-				<strong><%= d[1].capitalize %></strong>: 
-				<%= format_time(dx.start_time) %> to
-				<%= format_time(dx.end_time) %><br>
-				<% end %>
-		<% end %>
-	</div>
+	<%= render 'display_avails' %>
 
-	<div class="h-50 avail-table">
-		<h3><%= "#{@provider.name} is already booked at these times:" if @provider.appointments.any? %></h3>
-		<% @provider.appointments.each do |exist_appt| %>
-			<%= exist_appt.start_datetime.to_date %> from <%= exist_appt.start_datetime.strftime("%I:%M %p") %> to <%= exist_appt.end_datetime.strftime("%I:%M %p") %> <br>
-		<% end %>
-	</div>
-
-	<br><hr>
-
-	<%= render 'new_form' %>
-
-<% end %>
-
-<%= link_to 'Back', providers_path %>
+	<% if @availabilities.present? %>
+		<%= render 'new_form' %>
+	<% end %>
+	<%= link_to 'Back', providers_path %>
 </div>

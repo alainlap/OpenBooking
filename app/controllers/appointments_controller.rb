@@ -1,6 +1,7 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
   before_action :set_provider, only: [:new, :create]
+  before_action :set_availabilities, only: [:new, :create]
   before_action :set_user
 
   def index
@@ -15,11 +16,11 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = Appointment.new(appointment_params)
     @appointment.provider_id = @provider.id
-    @appointment.client_id = current_user.client.id
+    @appointment.client_id = @user.client.id
     @appointment.end_datetime = @appointment.start_datetime + params[:duration].to_i.hour
 
     if @appointment.save
-      redirect_to user_appointments_path(@user), notice: 'Appointment was successfully created.'
+        redirect_to user_appointments_path(@user), flash: {success: 'Appointment was successfully created.'}
     else
       render action: 'new'
     end
@@ -27,6 +28,7 @@ class AppointmentsController < ApplicationController
 
   def edit
     @provider = @appointment.provider
+    set_availabilities
   end
 
   def update
@@ -34,7 +36,7 @@ class AppointmentsController < ApplicationController
     @appointment.end_datetime = @appointment.start_datetime + params[:duration].to_i.hour
 
     if @appointment.update(appointment_params)
-      redirect_to user_appointments_path(@user), notice: 'Appointment was successfully updated.'
+      redirect_to user_appointments_path(@user), flash: {success: 'Appointment was successfully updated.'}
     else
       render action: 'edit'
     end
@@ -61,6 +63,10 @@ class AppointmentsController < ApplicationController
 
     def set_user
       @user = current_user
+    end
+
+    def set_availabilities
+      @availabilities = @provider.availabilities.where("start_time IS NOT NULL")
     end
     
 end

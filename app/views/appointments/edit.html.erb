@@ -1,8 +1,7 @@
 <h1 class="h-full light">Editing appointment with <%= @provider.name %></h1>
 
 <div class="form-wrapper">
-
-	<%= render 'edit_form' %>
-
-<%= link_to 'Back', user_appointments_path(@user, @appointments) %>
+	<%= render 'display_avails' %>
+	 <%= render 'edit_form' %>
+	<%= link_to 'Back', user_appointments_path(@user, @appointments) %>
 </div>

@@ -203,6 +203,11 @@ a:hover, a:active {
 	color: #5FBDCE;
 	}
 
+.inactive {
+	color:grey;
+	font-style: italic;
+}
+
 nav a, .logo {
 	text-decoration: none;
 }
