@@ -11,13 +11,13 @@ class Appointment < ActiveRecord::Base
 	def slot_available?
     availability_on_day = self.provider.availabilities.find_by_day(start_datetime.wday)
 
-    if availability_on_day.nil?
+    if availability_on_day.start_time.nil?
     	errors.add(:start_datetime, "#{self.provider.name} is not available on that day.") 
     else
-	    errors.add(:start_datetime, "Your appointment starts too early") if start_datetime.hour < availability_on_day.start_time
-	 		errors.add(:start_datetime, "Your appointment starts too late") if start_datetime.hour >=availability_on_day.end_time
-	    errors.add(:start_datetime, "Your appointment cannot end before it starts!") if end_datetime.hour < start_datetime.hour
-	    errors.add(:start_datetime, "Your appointment runs too late") if end_datetime.hour > availability_on_day.end_time
+	    errors.add(:start_datetime, "Your appointment starts too early") if start_datetime.seconds_since_midnight < (availability_on_day.start_time * 3600)
+	 		errors.add(:start_datetime, "Your appointment starts too late") if start_datetime.seconds_since_midnight >=(availability_on_day.end_time * 3600)
+	    errors.add(:start_datetime, "Your appointment cannot end before it starts!") if end_datetime.seconds_since_midnight < start_datetime.seconds_since_midnight
+	    errors.add(:start_datetime, "Your appointment runs too late") if end_datetime.seconds_since_midnight > (availability_on_day.end_time * 3600)
 	  end
   end
 

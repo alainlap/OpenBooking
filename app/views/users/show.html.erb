@@ -42,7 +42,7 @@
 				<% dx = @user.provider.availabilities.find_by_day(d[0]) %>
 					<strong><%= d[1].capitalize %></strong>: 
 					<% if dx.start_time.nil? %>
-						not available
+						<span class="inactive">not available</span>
 					<% else %>
 						<%= format_time(dx.start_time) %> to
 						<%= format_time(dx.end_time) %>

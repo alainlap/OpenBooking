@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :start_datetime %><br>
-    <%= f.datetime_select :start_datetime %>
+    <%= f.datetime_select :start_datetime, ampm: true, minute_step: 15, start_year: Time.now.year %>
   </div>
   <div class="field">
     <%= label_tag :duration, "Appointment Length" %><br>

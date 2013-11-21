@@ -1,22 +1,28 @@
 Core features:
 
 Broken things:
- ☐ possibly the viewing of availabilities? (nil means not avail now)
- ☐ possibly the validations against availabilities? (nil means not avail now)
- ☐ the seeds
- ☐ You can book appointments in the past (limit drop-downs or validate?)
+ ☐ You can book appointments in the past (validate?)
+ ☐ need validations on availabilities themselves
 Visual:
  ☐ Appointments edit is pretty cluttered
 Not great things:
   ☐ It shows past appointments (make an archive?)
   ☐ should use constant from Availability model for wdays everywhere
   ☐ You can change appointment at any time (block if within 24hours?)
+  ☐ Before filters don't properly restrict views only for users with client/provider profiles (only done with button hide/show)
+  ☐ should have tests 
 
 Bonus features:
   ☐ Upload and display images
   ☐ Ability to show providers by category
+  ☐ Nice little calendar for datetime picker
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ show avails in edit appointment @done (13-11-21 13:12) @project(Broken things)
+ ✔ You can't not have set up availabilities (change message in appt new to display if all nil) @done (13-11-21 13:11) @project(Broken things)
+ ✔ possibly the viewing of availabilities? (nil means not avail now) @done (13-11-21 13:06) @project(Broken things)
+ ✔ possibly the validations against availabilities? (nil means not avail now) @done (13-11-21 13:06) @project(Broken things)
+ ✔ the seeds @done (13-11-20 18:15) @project(Broken things)
  ✔ Ability to add, view, modify and delete availability @done (13-11-20 17:36) @project(Features)
  ✔ Delete availability for a given day @done (13-11-20 17:13) @project(Core)
  ✔ Availabilities should over-write if duplicate day of the week @done (13-11-20 17:13) @project(Core)

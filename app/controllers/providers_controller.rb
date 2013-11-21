@@ -22,7 +22,7 @@ class ProvidersController < ApplicationController
       
       Availability.initializer(@provider.id)
 
-      redirect_to user_path(@user), notice: 'Provider profile successfully created.'
+      redirect_to user_path(@user), flash: { success: 'Provider profile successfully created.' }
     else
       render action: 'new'
     end
@@ -30,7 +30,7 @@ class ProvidersController < ApplicationController
 
   def update
     if @provider.update(provider_params)
-      redirect_to user_path(@user), notice: 'Provider was successfully updated.'
+      redirect_to user_path(@user), flash: { success: 'Provider profile successfully updated.' }
     else
       render action: 'edit'
     end
@@ -61,7 +61,7 @@ class ProvidersController < ApplicationController
 
     def disallow_duplicate_providers
       unless @user.provider.nil?
-        redirect_to(user_path(@user), notice: "Error: You can only have one provider profile!")
+        redirect_to(user_path(@user), alert: "Error: You can only have one provider profile!")
       end
     end
 end
