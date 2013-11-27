@@ -1,7 +1,7 @@
 Core features:
 
 Broken things:
- ☐ need validations on availabilities themselves
+ ✔ need validations on availabilities themselves @done (13-11-27 15:49)
  ✔ can't book at 11pm (thinks it ends before it starts) @done (13-11-21 15:13)
  ✔ not possible to be available 11pm to midnight @done (13-11-21 15:13)
 Visual:
