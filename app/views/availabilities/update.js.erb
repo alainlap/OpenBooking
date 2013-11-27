@@ -1,0 +1,7 @@
+$('.form-wrapper').html("<%= j render 'form' %>");
+
+<% if @availability.errors.any? %>
+	$($('form')[<%= @availability.day %>]).addClass('fail');
+<% else %>
+	$($('form')[<%= @availability.day %>]).addClass('success');
+<% end %>
