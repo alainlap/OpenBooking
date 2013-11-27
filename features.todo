@@ -2,10 +2,9 @@ Core features:
 
 Broken things:
  ☐ need validations on availabilities themselves
- ✔ can't book at 11pm (thinks it ends before it starts) @done (13-11-21 15:13)
- ✔ not possible to be available 11pm to midnight @done (13-11-21 15:13)
 Visual:
  ☐ Appointments edit is pretty cluttered
+ ☐ button position affected by length of provider description (anchor to bottom of card?)
 Not great things:
   ☐ It shows past appointments (make an archive?)
   ☐ should use constant from Availability model for wdays everywhere
@@ -23,6 +22,8 @@ Bonus features:
   ☐ Appointments can be shorter than one hour
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ not possible to be available 11pm to midnight @done (13-11-21 15:13) @project(Broken things)
+ ✔ can't book at 11pm (thinks it ends before it starts) @done (13-11-21 15:13) @project(Broken things)
  ✔ You can book appointments in the past (validate?) @done (13-11-21 14:46) @project(Broken things)
  ✔ show avails in edit appointment @done (13-11-21 13:12) @project(Broken things)
  ✔ You can't not have set up availabilities (change message in appt new to display if all nil) @done (13-11-21 13:11) @project(Broken things)
