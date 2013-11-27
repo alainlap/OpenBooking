@@ -6,6 +6,7 @@ Broken things:
  ✔ not possible to be available 11pm to midnight @done (13-11-21 15:13)
 Visual:
  ☐ Appointments edit is pretty cluttered
+ ☐ Fix formating problem on Availabilities update with error
 Not great things:
   ☐ It shows past appointments (make an archive?)
   ☐ should use constant from Availability model for wdays everywhere

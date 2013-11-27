@@ -1,7 +1,5 @@
 <h1 class="h-full light">Choose a provider for your appointment</h1>
 
-<%= render 'shared/flash' %>
-
 	<% if !@user %>
 		<div id="notice">
 			You need to have an account to make appointments: <%= link_to "Create an account", new_user_path %>
@@ -11,6 +9,9 @@
 			You need to <%= link_to "create a client profile", new_user_client_path(@user) %> to make an appointment.
 		</div>
 	<% end %>
+
+<div id="flash"><%= render 'shared/flash' %></div>
+
 
 <div class="card-wrapper">
 	<% @providers.each do |provider| %>	
