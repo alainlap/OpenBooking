@@ -1,17 +1,34 @@
+
+<% if @availability && @availability.errors.any? %>
+  <div id="error_explanation">
+    <h2>Sorry, we can't schedule your availability on <%= Availability::WDAYS[@availability.day][0] %> because:</h2>
+
+    <ul>
+    <% @availability.errors.full_messages.each do |msg| %>
+      <li><%= msg.gsub("Start time ","") %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <% @availabilities.each do |a| %>
 
-<%= form_tag("/users/#{@user.id}/providers/#{@provider.id}/availabilities/#{a.id}", method: :patch) do %>
+	<% if @availability && a.id == @availability.id %>
+		<% a = @availability %>
+	<% end %>
+
+	<%= form_for [@user, @provider, a], remote: true do |f|%>
 
 		<h3><%= Availability::WDAYS[a.day][0] %></h3>
 		<p>
-			<%= label_tag "Start Time" %>
-			<%= select_tag :start_time, options_for_select(ftime, a.start_time ) %>
+			<%= f.label "Start Time" %>
+			<%= f.select :start_time, options_for_select(ftime, a.start_time ) %>
 		</p>
 		<p>
-			<%= label_tag "End Time" %>
-			<%= select_tag :end_time, options_for_select(ftime, a.end_time) %>
+			<%= f.label "End Time" %>
+			<%= f.select :end_time, options_for_select(ftime, a.end_time) %>
 		</p>
-			<p><%= submit_tag "Update" %></p><br>
+			<p><%= f.submit "Update" %></p><br>
 	<% end %>
 <% end %>
 <br>
