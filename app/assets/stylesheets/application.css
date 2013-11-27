@@ -119,6 +119,17 @@ form {
 	display: inline-block;
 }
 
+form {
+	padding: 15px;
+}
+.success {
+	background-color: #A6E22D;
+}
+
+.fail {
+	background-color: tomato;
+}
+
 .login {
 	font-size: 1em;
 	text-align: right;
@@ -307,6 +318,7 @@ a.card:hover, a.card:active {
 	background-color: tomato;
 	padding: 1em;
 	border-radius: 5px;
+	margin-bottom: 20px;
 }
 
 #error_explanation li {

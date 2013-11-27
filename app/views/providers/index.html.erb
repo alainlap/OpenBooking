@@ -1,5 +1,7 @@
 <h1 class="h-full light">Choose a provider for your appointment</h1>
 
+<%= render 'shared/flash' %>
+
 	<% if !@user %>
 		<div id="notice">
 			You need to have an account to make appointments: <%= link_to "Create an account", new_user_path %>
