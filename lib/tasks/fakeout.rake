@@ -1,4 +1,6 @@
 
+# IMPORTANT: Must drop and re-setup db before running. Relies on equal numbers of clients, providers and users, and on the presumption that all availabilities are 24/7. This is true of the data it generates.
+
 require 'faker'
 
 class Fakeout
@@ -8,12 +10,12 @@ class Fakeout
   # 1. first these are the model names we're going to fake out, note in this example, we don't create tags/taggings specifically
   # but they are defined here so they get wiped on the clean operation
   # e.g. this example fakes out, Users, Questions and Answers, and in doing so fakes some Tags/Taggings
-  MODELS = %w(User Client Provider Availability Appointment)
+  MODELS = %w(User Client Provider)
 
   # 2. now define a build method for each model, returning a list of attributes for Model.create! calls
   # check out the very excellent faker gem rdoc for faking out anything from emails, to full addresses; http://faker.rubyforge.org/rdoc
   # NOTE: a build_??? method MUST exist for each model you specify above
-  def build_user(username = "#{Faker::Internet.user_name}_#{random_letters}", email = Faker::Internet.email, password = 'test')
+  def build_user(username = "#{Faker::Internet.user_name}_#{random_letters}", email = "test#{(@@counter+=1)}@test.com", password = 'test')
     { :username              => username,
       :email                 => email,
       :password              => password,
@@ -45,27 +47,46 @@ class Fakeout
       :phone_number     => Faker::PhoneNumber.phone_number }
   end
 
-  def build_availability
-    { :day             => rand(6),
+  def build_availability(day)
+    { :day             => day,
       :start_time      => 0,
       :end_time        => 24,
-      :provider_id     => (@@counter += 1) }
+      :provider_id     => @@counter }
   end
 
   def build_appointment
-    t = Time.now + (rand(167)+1).hours
+    starts_at = DateTime.now.utc.beginning_of_hour + (rand(13)+1).days + rand(24).hours
+    finishes_at = starts_at + rand(3) + 1
+    if starts_at.day != finishes_at.day
+      finishes_at = starts_at.end_of_day
+    end
+
     { 
       :reason          => Faker::Lorem.sentence(word_count = 4),
       :description     => Faker::Lorem.sentence(word_count = 10),
       :provider_id     => rand(send(size)-1)+1,
       :client_id       => rand(send(size)-1)+1,
-      :start_datetime  => t,
-      :end_datetime    => t + rand(3) + 1   }
+      :start_datetime  => starts_at,
+      :end_datetime    => finishes_at   }
   end
   
   # called after faking out, use this method for additional updates or additions
   def post_fake
-    User.create!(build_user('test', 'test@test.com', 'test'))
+    @@counter = 1
+    1.upto(send(size)) do
+      7.times do |day|
+        attributes = build_availability(day)
+        Availability.create!(attributes)
+      end
+      @@counter += 1
+    end
+    puts "  * Availabilities: #{Availability.count(:all)}"    
+
+    1.upto(send(size)) do
+      attributes = build_appointment
+      Appointment.create!(attributes)
+    end
+    puts "  * Appointments: #{Appointment.count(:all)}"  
   end
 
   # 3. optionally you can change these numbers, basically they are used to determine the number of models to create
