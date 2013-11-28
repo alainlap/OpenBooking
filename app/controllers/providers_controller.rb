@@ -6,6 +6,11 @@ class ProvidersController < ApplicationController
 
   def index
     @providers = Provider.order('providers.name ASC').page(params[:page])
+
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def new

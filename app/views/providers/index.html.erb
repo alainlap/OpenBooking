@@ -11,31 +11,14 @@
 	<% end %>
 
 <div class="card-wrapper">
-	<% @providers.each do |provider| %>	
-		<div class="card gray">
-			<h2><%= provider.name %></h2>
-			<h3><%= provider.type.name %></h3>
-			<small><em><p><%= truncate(provider.description, length: 150, separator: " ") %></p></em><br>
 
-			<p><%= provider.address %></p>
-			<p><%= provider.city %>, <%= provider.province %>,&nbsp;&nbsp;<%= provider.postal_code %></p>
-			<p><%= provider.phone_number %></p>
-			<p><%= provider.user.email %></p>
-			<p><%= provider.website %></p></small> <br>
+	<div id='providers'>
+		<%= render @providers %>
+		<div class="card spacer"></div>
+		<div class="card spacer"></div>
+		<div class="card spacer"></div>
+	</div>
 
-			<% if @user && ( !(provider == @user.provider) && @user.client ) %>
-			  <%= link_to button_tag("Book appointment", class: "light"), new_provider_appointment_path(provider) %>
-		  <% elsif @user && (provider == @user.provider) %>
-		  	<p class="dark-font">This is you!</p>
-			<% end %>
-
-		</div>
-	<% end %>
-	<div class="card spacer"></div>
-	<div class="card spacer"></div>
-	<div class="card spacer"></div>
 </div>
 
-<div id="pagination">
-	<%= paginate @providers %>
-</div>
+<%= paginate @providers %>

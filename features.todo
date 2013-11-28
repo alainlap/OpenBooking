@@ -1,7 +1,7 @@
 Core features:
 
 Broken things:
-
+ ☐ Edit availability broken in HTML
 Visual:
  ☐ Appointments edit is pretty cluttered
  ☐ button position affected by length of provider description (anchor to bottom of card?)

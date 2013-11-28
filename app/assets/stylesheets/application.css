@@ -355,7 +355,7 @@ a.card:hover, a.card:active {
 	text-align: center;
 }
 
-#pagination {
+.pagination {
 	text-align: center;
 	background-color: #F5F6F5;
 }
