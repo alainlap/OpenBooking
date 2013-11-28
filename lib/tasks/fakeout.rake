@@ -1,5 +1,7 @@
 
-# IMPORTANT: Must drop and re-setup db before running. Relies on equal numbers of clients, providers and users, and on the presumption that all availabilities are 24/7. This is true of the data it generates.
+# IMPORTANT: Must drop and re-setup db before running. Relies on several presumptions: 
+# - if any clients/users/providers exist (will be cleared) or previously existed in the db, the ratio between them was always perfectly even (new ids added by the rake must be equal)
+# - all availabilities are 24/7.
 
 require 'faker'
 
@@ -7,9 +9,8 @@ class Fakeout
 
   # START Customizing
 
-  # 1. first these are the model names we're going to fake out, note in this example, we don't create tags/taggings specifically
-  # but they are defined here so they get wiped on the clean operation
-  # e.g. this example fakes out, Users, Questions and Answers, and in doing so fakes some Tags/Taggings
+  # 1. first these are the model names we're going to fake out
+
   MODELS = %w(User Client Provider)
 
   # 2. now define a build method for each model, returning a list of attributes for Model.create! calls
@@ -47,14 +48,14 @@ class Fakeout
       :phone_number     => Faker::PhoneNumber.phone_number }
   end
 
-  def build_availability(day)
+  def build_manual_availability(day)
     { :day             => day,
       :start_time      => 0,
       :end_time        => 24,
       :provider_id     => @@counter }
   end
 
-  def build_appointment
+  def build_manual_appointment
     starts_at = DateTime.now.utc.beginning_of_hour + (rand(13)+1).days + rand(24).hours
     finishes_at = starts_at + rand(3) + 1
     if starts_at.day != finishes_at.day
@@ -69,13 +70,15 @@ class Fakeout
       :start_datetime  => starts_at,
       :end_datetime    => finishes_at   }
   end
+
+  # return nil, or an empty hash for models you don't want to be faked out on create, but DO want to have cleared away. it will log that it creates zero.
   
   # called after faking out, use this method for additional updates or additions
   def post_fake
     @@counter = 1
     1.upto(send(size)) do
       7.times do |day|
-        attributes = build_availability(day)
+        attributes = build_manual_availability(day)
         Availability.create!(attributes)
       end
       @@counter += 1
@@ -83,14 +86,19 @@ class Fakeout
     puts "  * Availabilities: #{Availability.count(:all)}"    
 
     1.upto(send(size)) do
-      attributes = build_appointment
-      Appointment.create!(attributes)
+      attributes = build_manual_appointment
+      begin
+        Appointment.create!(attributes)
+      rescue ActiveRecord::RecordInvalid => e
+        puts "   - An appointment was skipped because it failed this validation:\n       #{e.record.errors.full_messages}"
+        next
+      end
     end
     puts "  * Appointments: #{Appointment.count(:all)}"  
   end
 
   # 3. optionally you can change these numbers, basically they are used to determine the number of models to create
-  # and also the size of the tags array to choose from.  To check things work quickly use the tiny size (1 for everything)
+
   def tiny
     1
   end
@@ -100,11 +108,11 @@ class Fakeout
   end
 
   def medium
-    250+rand(250)
+    250
   end
 
   def large
-    1000+rand(500)
+    1000
   end
 
   # END Customizing
@@ -135,7 +143,7 @@ class Fakeout
   end
   
   def self.prompt
-    puts "Really? This will clean all #{MODELS.map(&:pluralize).join(', ')} from your database y/n? "
+    puts "\nIMPORTANT: You MUST drop and re-setup your database before running this rake. \nOtherwise, the rake will still delete all #{MODELS.map(&:pluralize).join(', ')} from your database, and it will FAIL.\nProceed? y/n "
     STDOUT.flush
     (STDIN.gets =~ /^y|^Y/) ? true : exit(0)
   end
