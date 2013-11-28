@@ -53,3 +53,5 @@ group :development, :test do
 	gem "factory_girl_rails", "~> 4.3.0"
 	gem "pry"
 end
+
+gem 'kaminari'

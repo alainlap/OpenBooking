@@ -132,6 +132,7 @@ form {
 	font-size: 1em;
 	text-align: right;
 	float: right;
+	/*margin-top: 25px;*/
 }
 
 .login {
@@ -292,25 +293,7 @@ a.card:hover, a.card:active {
 	margin-top: 1em;
 }
 
-#notice,
-#alert,
-#success {
-	display: block;
-	padding: 1em 0;
-	text-align: center;
-}
 
-#notice {
-	background: #FACC44;
-}
-
-#alert {
-	background: tomato;
-}
-
-#success {
-	background: lightgreen;
-}
 
 #error_explanation {
 	background-color: tomato;
@@ -333,3 +316,46 @@ a.card:hover, a.card:active {
 }
 
 
+.global-flash {
+	padding: 10px 25px;
+	/*background: rgba(255, 50, 50, 0.8);*/
+	position: absolute;
+	top: -50px;
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+
+#notice,
+#alert,
+#success {
+	display: block;
+	position: absolute;
+	width: 100%;
+	padding: .45em 0;
+	text-align: center;
+	top: -100px;
+}
+
+#notice {
+	background: #FACC44;
+}
+
+#alert {
+	background: tomato;
+}
+
+#success {
+	background: lightgreen;
+}
+
+#signed-out-notice {
+	background: #FACC44;
+	padding: 1em 0;
+	text-align: center;
+}
+
+#pagination {
+	text-align: center;
+	background-color: #F5F6F5;
+}

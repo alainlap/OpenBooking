@@ -5,7 +5,7 @@ class ProvidersController < ApplicationController
   before_action :disallow_duplicate_providers, only: [:new]
 
   def index
-    @providers = Provider.all
+    @providers = Provider.order('providers.name ASC').page(params[:page])
   end
 
   def new

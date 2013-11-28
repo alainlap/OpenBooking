@@ -9,6 +9,19 @@
 </head>
   <body class="h-full v-full">
 
+
+  <!-- FLASH NOTICE -->
+  <% if flash[:notice] %>
+    <div id="notice"><%= flash[:notice] %></div>
+  <% end %>
+  <% if flash[:success] %>
+    <div id="success"><%= flash[:success] %></div>
+  <% end %>
+  <% if flash[:alert] %>
+    <div id="alert"><%= flash[:alert] %></div>
+  <% end %>
+
+
   <nav class="container h-full dark">
 
     <%= link_to "OpenBooking", root_path, class: "logo" %>
