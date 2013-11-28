@@ -67,7 +67,7 @@ class Appointment < ActiveRecord::Base
   def booking_today_or_past?
     if self.start_datetime.day == DateTime.now.utc.day
       errors.add(:start_datetime, "To book a same-day appointment, please contact #{self.provider.name} directly at #{self.provider.phone_number}")
-    elsif self.start_datetime.day < DateTime.now.utc.day
+    elsif self.start_datetime < DateTime.now.utc
       errors.add(:start_datetime, "Your appointment can't be in the past")
     end
   end
