@@ -18,11 +18,11 @@
 		<div class="card gray">
 			<h2><%= provider.name %></h2>
 			<h3><%= provider.type.name %></h3>
-			<small><em><p><%= provider.description %></p></em><br>
+			<small><em><p><%= truncate(provider.description, length: 150, separator: " ") %></p></em><br>
 
 			<p><%= provider.address %></p>
 			<p><%= provider.city %>, <%= provider.province %>,&nbsp;&nbsp;<%= provider.postal_code %></p>
-			<p><%= provider.phone_number %></p><br>
+			<p><%= provider.phone_number %></p>
 			<p><%= provider.user.email %></p>
 			<p><%= provider.website %></p></small> <br>
 

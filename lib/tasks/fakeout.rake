@@ -41,7 +41,7 @@ class Fakeout
       :postal_code      => Faker::Address.zip_code,
       :city             => Faker::Address.city,
       :province         => Faker::Address.state_abbr,
-      :type_id          => rand(14),
+      :type_id          => rand(14)+1,
       :user_id          => (@@counter += 1),
       :description      => Faker::Lorem.paragraph(sentence_count = rand(5)),
       :website          => Faker::Internet.domain_name,

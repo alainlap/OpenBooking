@@ -37,7 +37,7 @@
 			
 				<h2><%= appointment.start_datetime.strftime("%A, %b %e") %></h2>
 				<h3><%= appointment.start_datetime.strftime("%I:%M %p") %> - <%= appointment.end_datetime.strftime("%I:%M %p") %></h3><br>
-				<h3>Appointment with <%= appointment.client.name %></h3>
+				<h3>Appointment with <%= appointment.client.name %>, <%= appointment.provider.type.name %></h3>
 				<p><strong>Reason: </strong><%= appointment.reason %></p>
 				<p><strong>Description: </strong><%= appointment.description %></p><br>
 				<p><%= link_to "Edit", edit_user_appointment_path(@user, appointment) %> |
