@@ -28,6 +28,7 @@
 			<%= f.label "End Time" %>
 			<%= f.select :end_time, options_for_select(ftime, a.end_time) %>
 		</p>
+			<%= token_tag nil %>
 			<p><%= f.submit "Update" %></p><br>
 	<% end %>
 <% end %>

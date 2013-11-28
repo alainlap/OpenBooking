@@ -16,11 +16,11 @@ class Fakeout
   # 2. now define a build method for each model, returning a list of attributes for Model.create! calls
   # check out the very excellent faker gem rdoc for faking out anything from emails, to full addresses; http://faker.rubyforge.org/rdoc
   # NOTE: a build_??? method MUST exist for each model you specify above
-  def build_user(username = "#{Faker::Internet.user_name}_#{random_letters}", email = "test#{(@@counter+=1)}@test.com", password = 'test')
-    { :username              => username,
-      :email                 => email,
-      :password              => password,
-      :password_confirmation => password }
+  def build_user
+    { :username              => "test#{(@@counter+=1)}",
+      :email                 => Faker::Internet.email,
+      :password              => 'test',
+      :password_confirmation => 'test' }
   end
 
   def build_client
@@ -35,16 +35,16 @@ class Fakeout
   end
 
   def build_provider
-
-    { :name             => Faker::Company.name,
+    n = Faker::Company.name
+    { :name             => n,
       :address          => Faker::Address.street_address + Faker::Address.street_name,
       :postal_code      => Faker::Address.zip_code,
       :city             => Faker::Address.city,
       :province         => Faker::Address.state_abbr,
       :type_id          => rand(14)+1,
       :user_id          => (@@counter += 1),
-      :description      => Faker::Lorem.paragraph(sentence_count = rand(5)),
-      :website          => Faker::Internet.domain_name,
+      :description      => Faker::Lorem.paragraph(sentence_count = rand(3)+1),
+      :website          => n[/\w+/].downcase + "." + Faker::Internet.domain_suffix,
       :phone_number     => Faker::PhoneNumber.phone_number }
   end
 
@@ -117,7 +117,7 @@ class Fakeout
 
   # END Customizing
 
-  attr_accessor :all_tags, :size
+  attr_accessor :size
 
   def initialize(size, prompt=true)
     self.size     = size

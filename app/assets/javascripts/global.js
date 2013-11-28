@@ -6,8 +6,8 @@ $(document).ready(function() {
 	// $('#success').on( "load", slideFlash);
 	// $('#alert').on( "load", slideFlash);
 	if($('#notice').length){ slideFlash($('#notice')) };
-	if($('#success').length){ slideFlash($('#success')) };	
-	if($('#alert').length){ slideFlash($('#alert')) };	
+	if($('#success').length){ slideFlash($('#success')) };
+	if($('#alert').length){ slideFlash($('#alert')) };
 
 	$(function() {
 		if ($('.pagination').length) {
@@ -19,8 +19,8 @@ $(document).ready(function() {
 				}
 			});
 		}
+		$(window).scroll();
 	});
-	$(window).scroll();
 });
 
 function slideFlash(target) {

@@ -1,5 +1,5 @@
 Core features:
-
+ ☐ Implement our own live filter on provider index. Don't use autocomplete widget!
 Broken things:
  ☐ Edit availability broken in HTML
 Visual:
