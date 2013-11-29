@@ -5,14 +5,15 @@ class ProvidersController < ApplicationController
   before_action :disallow_duplicate_providers, only: [:new]
 
   def index
+
     if params[:filter] && params[:filter] != ""
-      @providers = Provider.where("id = ?", "#{params[:filter]}").order('providers.name ASC').page(params[:page])
-      # @providers = Provider.where("? = ?", params[:property], "%#{params[:filter]}%").order('providers.name ASC').page(params[:page])
+      @providers = Provider.where('name ilike ?', "%#{params[:filter].to_s}%").order('providers.name ASC').page(params[:page])
+      # @providers = Provider.where('? ilike ?', params[:property].to_s, "%#{params[:filter].to_s}%").order('providers.name ASC').page(params[:page])
       respond_to do |format|
         format.js {render 'filter'}
       end
     else
-      @providers = Provider.order('providers.name ASC').page(params[:page])
+      @providers = Provider.order('name ASC').page(params[:page])
       respond_to do |format|
         format.js
         format.html
