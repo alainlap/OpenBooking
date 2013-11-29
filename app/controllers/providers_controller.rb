@@ -7,6 +7,7 @@ class ProvidersController < ApplicationController
   def index
     if params[:filter] && params[:filter] != ""
       @providers = Provider.where("id = ?", "#{params[:filter]}").order('providers.name ASC').page(params[:page])
+      # @providers = Provider.where("? = ?", params[:property], "%#{params[:filter]}%").order('providers.name ASC').page(params[:page])
       respond_to do |format|
         format.js {render 'filter'}
       end
