@@ -359,3 +359,9 @@ a.card:hover, a.card:active {
 	text-align: center;
 	background-color: #F5F6F5;
 }
+
+#provider-filter {
+	display: inline-block;
+	float: right;
+	vertical-align: middle;
+}

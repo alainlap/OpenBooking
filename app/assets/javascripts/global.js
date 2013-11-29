@@ -21,6 +21,10 @@ $(document).ready(function() {
 		}
 		$(window).scroll();
 	});
+
+	// bind to keypress in filter box
+	$('input#filter').keyup(liveFilter)
+
 });
 
 function slideFlash(target) {
@@ -30,6 +34,9 @@ function slideFlash(target) {
 	}, 3000)
 }
 
-
-
-
+function liveFilter() {
+	var filterString = $(this).val();
+	console.log(filterString);
+	var filterProperty = $('select#property').val();
+	$.post('/providers', {filter: filterString, property: filterProperty});
+};

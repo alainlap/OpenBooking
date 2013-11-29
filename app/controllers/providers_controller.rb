@@ -5,11 +5,17 @@ class ProvidersController < ApplicationController
   before_action :disallow_duplicate_providers, only: [:new]
 
   def index
-    @providers = Provider.order('providers.name ASC').page(params[:page])
-
-    respond_to do |format|
-      format.js
-      format.html
+    if params[:filter] && params[:filter] != ""
+      @providers = Provider.where("id = ?", "#{params[:filter]}").order('providers.name ASC').page(params[:page])
+      respond_to do |format|
+        format.js {render 'filter'}
+      end
+    else
+      @providers = Provider.order('providers.name ASC').page(params[:page])
+      respond_to do |format|
+        format.js
+        format.html
+      end
     end
   end
 
