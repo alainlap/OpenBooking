@@ -43,7 +43,7 @@ class Fakeout
       :province         => Faker::Address.state_abbr,
       :type_id          => rand(14)+1,
       :user_id          => (@@counter += 1),
-      :description      => Faker::Lorem.paragraph(sentence_count = rand(3)+1),
+      :description      => Faker::Lorem.paragraph(sentence_count = rand(2)+1),
       :website          => n[/\w+/].downcase + "." + Faker::Internet.domain_suffix,
       :phone_number     => Faker::PhoneNumber.phone_number }
   end
@@ -57,7 +57,7 @@ class Fakeout
 
   def build_manual_appointment
     starts_at = DateTime.now.utc.beginning_of_hour + (rand(13)+1).days + rand(24).hours
-    finishes_at = starts_at + rand(3) + 1
+    finishes_at = starts_at + (rand(3) + 1).hours
     if starts_at.day != finishes_at.day
       finishes_at = starts_at.end_of_day
     end
