@@ -5,13 +5,11 @@ Broken things:
 Visual:
  ☐ Appointments edit is pretty cluttered
  ☐ button position affected by length of provider description (anchor to bottom of card?)
- ☐ Fix formating problem on Availabilities update with error
 Not great things:
   ☐ It shows past appointments (make an archive?)
-  ☐ should use constant from Availability model for wdays everywhere
   ☐ You can change appointment at any time (block if within 24hours?)
   ☐ Before filters don't properly restrict views only for users with client/provider profiles (only done with button hide/show)
-  ☐ should have tests 
+  ☐ should have tests
   ☐ appointments are sorted by id, not start time, whenever they display
 
 Bonus features:
@@ -23,6 +21,8 @@ Bonus features:
   ☐ Appointments can be shorter than one hour
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ should use constant from Availability model for wdays everywhere @done (13-12-07 17:20) @project(Not great things)
+ ✔ Fix formating problem on Availabilities update with error @done (13-12-07 17:14) @project(Visual)
  ✔ need validations on availabilities themselves @done (13-11-27 18:44) @project(Broken things)
  ✔ need validations on availabilities themselves @done (13-11-27 15:49) @project(Visual)
  ✔ can't book at 11pm (thinks it ends before it starts) @done (13-11-21 15:13) @project(Visual)
