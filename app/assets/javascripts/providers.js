@@ -28,12 +28,18 @@ $(document).ready( function() {
 
 
 function liveFilter(event) {
-	var filterString = $(this).val();
+	var filterString = $('#filter').val();
 	var filterProperty = $('select#property').val();
 	var filterType = $('select#type').val();
 
 	event.preventDefault();
 	event.stopPropagation();
+
+	//if they backspaced, clear search (about to append all with pagination)
+	if ( filterString === "" ) {
+		spacer = $('.card.spacer');
+		$("#providers").html(spacer);
+	}
 
 	$.ajax({
 		type: "GET",
