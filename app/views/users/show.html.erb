@@ -16,7 +16,7 @@
 
 	<div class="card gray">
 		<em><h2>My Client profile</h2>
-		<p>This profile lets you book appointments with others on the site.</p></em> <br>
+		<p>This lets you book appointments with others on the site.</p></em> <br>
 		<% if @user.client.nil? %>
 			<%= link_to button_tag("Add a client profile"), new_user_client_path(@user) %>
 		<% else %>
@@ -26,7 +26,7 @@
 
 	<div class="card gray">
 		<em><h2>My Provider Profile</h2>
-		<p>This profile lets others book appointments with you.</p></em><br>
+		<p>This lets others book appointments with you.</p></em><br>
 		<% if @user.provider.nil? %>
 			<%= link_to button_tag("Add a provider profile"), new_user_provider_path(@user) %>
 		<% else %>
