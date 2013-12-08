@@ -27,7 +27,5 @@ function liveFilter() {
 		url: '/providers',
 		data: {filter: {filter: filterString, property: filterProperty}},
 		dataType: "js"
-		}).done(function(data){
-			alert("success!");
 		});
 }
