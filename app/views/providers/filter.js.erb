@@ -1,4 +1,5 @@
-
+var spacer = $('.card.spacer');
 $('#providers').html("<%= j(render( @providers )) %>");
+$('#providers').append(spacer);
+$('.pagination').css("display", "none");	// we aren't paginating, but div needs to be available if user backs up to index
 
-$('.pagination').replaceWith("");

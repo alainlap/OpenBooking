@@ -6,12 +6,16 @@ class ProvidersController < ApplicationController
 
   def index
 
-    if params[:filter].present? && Provider.column_names.include?(filter_params[:property])
-      @providers = Provider.where("#{filter_params[:property]} ilike ?", "%#{filter_params[:filter]}%").order('providers.name ASC').load
-      p @providers.count.to_s + " providers returned"
-      respond_to do |format|
-        format.js { render 'filter' }
-      end
+    if params[:filter] &&                                       #The user has searched
+      filter_params[:filter].present? &&                        #The search field isn't empty
+      Provider.column_names.include?(filter_params[:property])  #The property is ok for interpolation
+
+        @providers = Provider.where("#{filter_params[:property]} ilike ?", "%#{filter_params[:filter]}%").order('providers.name ASC').load
+
+        respond_to do |format|
+          format.js { render 'filter' }
+        end
+
     else
       @providers = Provider.order('name ASC').page(params[:page])
       respond_to do |format|
