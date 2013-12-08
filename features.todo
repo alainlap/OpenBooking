@@ -10,7 +10,6 @@ Not great things:
   ☐ You can change appointment at any time (block if within 24hours?)
   ☐ Before filters don't properly restrict views only for users with client/provider profiles (only done with button hide/show)
   ☐ should have tests
-  ☐ appointments are sorted by id, not start time, whenever they display
 
 Bonus features:
   ☐ Upload and display images
@@ -22,6 +21,7 @@ Bonus features:
   ☐ Appointments can be shorter than one hour
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ appointments are sorted by id, not start time, whenever they display @done (13-12-08 02:09) @project(Not great things)
  ✔ button position affected by length of provider description (anchor to bottom of card?) @done (13-12-08 01:59) @project(Visual)
  ✔ Implement our own live filter on provider index. Don't use autocomplete widget! @done (13-12-08 01:22) @project(Core features)
  ✔ Appointments edit is pretty cluttered @done (13-12-08 01:08) @project(Visual)
