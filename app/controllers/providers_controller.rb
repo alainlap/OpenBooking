@@ -6,11 +6,18 @@ class ProvidersController < ApplicationController
 
   def index
 
+    ignore_type = Type.new({id: 0, name: "ALL TYPES"})
+    @types.unshift(ignore_type)
+
     if params[:filter] &&                                       #The user has searched
       filter_params[:filter].present? &&                        #The search field isn't empty
       Provider.column_names.include?(filter_params[:property])  #The property is ok for interpolation
 
-        @providers = Provider.where("#{filter_params[:property]} ilike ?", "%#{filter_params[:filter]}%").order('providers.name ASC').load
+        if filter_params[:type].to_i == 0
+          @providers = Provider.where("#{filter_params[:property]} ilike ?", "%#{filter_params[:filter]}%").order('providers.name ASC').load
+        elsif (1..( @types.length - 1 )).include?(filter_params[:type].to_i)
+          @providers = Provider.where("#{filter_params[:property]} ilike ? AND type_id = ?", "%#{filter_params[:filter]}%", filter_params[:type]).order('providers.name ASC').load
+        end
 
         respond_to do |format|
           format.js { render 'filter' }
@@ -68,7 +75,7 @@ class ProvidersController < ApplicationController
     end
 
     def filter_params
-      params.require(:filter).permit(:filter, :property)
+      params.require(:filter).permit(:filter, :property, :type)
     end
 
     def load_types

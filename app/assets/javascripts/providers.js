@@ -15,8 +15,9 @@ $(document).ready( function() {
 		$(window).scroll();
 	});
 
-	// bind to keypress in filter box
-	$('input#filter').keyup(liveFilter);
+	// bind to keypress in filter box and change in selector boxes
+	$('#filter').keyup(liveFilter);
+	$('#filter-form').on("change", "select", liveFilter);
 
 	//prevent form submission if user hits enter
 	$("#filter-form").on("submit", function(event){
@@ -29,6 +30,7 @@ $(document).ready( function() {
 function liveFilter(event) {
 	var filterString = $(this).val();
 	var filterProperty = $('select#property').val();
+	var filterType = $('select#type').val();
 
 	event.preventDefault();
 	event.stopPropagation();
@@ -36,7 +38,7 @@ function liveFilter(event) {
 	$.ajax({
 		type: "GET",
 		url: '/providers',
-		data: {filter: {filter: filterString, property: filterProperty}},
+		data: { filter: { filter: filterString, property: filterProperty, type: filterType } },
 		dataType: "script"
 	});
 }

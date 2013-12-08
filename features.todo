@@ -1,9 +1,7 @@
 Core features:
- ☐ Implement our own live filter on provider index. Don't use autocomplete widget!
 Broken things:
- ☐ Edit availability broken in HTML
+ ☐ We haven't ensured full functionality when no JS
 Visual:
- ☐ Appointments edit is pretty cluttered
  ☐ button position affected by length of provider description (anchor to bottom of card?)
 Not great things:
   ☐ It shows past appointments (make an archive?)
@@ -14,6 +12,7 @@ Not great things:
 
 Bonus features:
   ☐ Upload and display images
+  ☐ Have geocoder-based toggle to display only "Near me"
   ☐ Ability to show providers by category
   ☐ Nice little calendar for datetime picker
   ☐ Multiple availabilities for the same day (e.g. morning and evening)
@@ -21,13 +20,15 @@ Bonus features:
   ☐ Appointments can be shorter than one hour
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ Implement our own live filter on provider index. Don't use autocomplete widget! @done (13-12-08 01:22) @project(Core features)
+ ✔ Appointments edit is pretty cluttered @done (13-12-08 01:08) @project(Visual)
  ✔ should use constant from Availability model for wdays everywhere @done (13-12-07 17:20) @project(Not great things)
  ✔ Fix formating problem on Availabilities update with error @done (13-12-07 17:14) @project(Visual)
  ✔ need validations on availabilities themselves @done (13-11-27 18:44) @project(Broken things)
  ✔ need validations on availabilities themselves @done (13-11-27 15:49) @project(Visual)
- ✔ can't book at 11pm (thinks it ends before it starts) @done (13-11-21 15:13) @project(Visual)
  ✔ not possible to be available 11pm to midnight @done (13-11-21 15:13) @project(Visual)
  ✔ not possible to be available 11pm to midnight @done (13-11-21 15:13) @project(Broken things)
+ ✔ can't book at 11pm (thinks it ends before it starts) @done (13-11-21 15:13) @project(Visual)
  ✔ can't book at 11pm (thinks it ends before it starts) @done (13-11-21 15:13) @project(Broken things)
  ✔ You can book appointments in the past (validate?) @done (13-11-21 14:46) @project(Broken things)
  ✔ show avails in edit appointment @done (13-11-21 13:12) @project(Broken things)

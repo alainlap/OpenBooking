@@ -370,3 +370,9 @@ a.card:hover, a.card:active {
 	font-size: 20px;
 	vertical-align: middle;
 }
+
+#filter-form input {
+	height: 1.3em;
+	padding: 0 5px;
+	border-radius: 3px;
+}
