@@ -1,9 +1,9 @@
 <h1 class="h-full light">Choose a provider for your appointment
 
 <div id="provider-filter">
-	<%= form_tag :providers, remote: true do %>
+	<%= form_tag :providers do %>
 		<%= text_field_tag :filter %>
-		<%= select_tag 'property', options_for_select(["id","name","city", "description"]) %>
+		<%= select_tag 'property', options_for_select(["name","city", "description"]) %>
 	<% end %>
 </div>
 
