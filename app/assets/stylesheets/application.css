@@ -169,6 +169,13 @@ form {
 	/*border-radius: 5px;*/
 	text-decoration: none;
 	text-align: left;
+	position: relative;
+}
+
+.book-button {
+	position: absolute;
+	bottom: 15px;
+	right: 15px;
 }
 
 .profile-wrapper, .card {
