@@ -1,11 +1,9 @@
 <h1 class="h-full light">Choose a provider for your appointment
 
-<div id="provider-filter">
 	<%= form_tag :providers, id: "filter-form" do %>
 		<%= text_field_tag :filter %>
 		<%= select_tag 'property', options_for_select(["name","city", "description"]) %>
 	<% end %>
-</div>
 
 </h1>
 

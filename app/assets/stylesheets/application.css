@@ -136,7 +136,7 @@ form {
 }
 
 .login {
-	/*border-radius: 5px;*/	
+	/*border-radius: 5px;*/
 	padding-right: 1.5em;
 }
 
@@ -360,8 +360,13 @@ a.card:hover, a.card:active {
 	background-color: #F5F6F5;
 }
 
-#provider-filter {
+#filter-form {
+	padding:0;
 	display: inline-block;
 	float: right;
+}
+
+#filter-form input, #filter-form select {
+	font-size: 20px;
 	vertical-align: middle;
 }
