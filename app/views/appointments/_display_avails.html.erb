@@ -6,7 +6,7 @@
 	<div class="h-50">
 		<h3><%= "#{@provider.name} is available at these times:" %></h3>
 		<% @availabilities.each do |avail| %>
-				<strong><%= Availability::WDAYS[avail.day][0] %></strong>: 
+				<strong><%= Availability::WDAYS[avail.day][0] %></strong>:
 				<%= format_time(avail.start_time) %> to
 				<%= format_time(avail.end_time) %><br>
 		<% end %>
@@ -14,7 +14,7 @@
 
 	<div class="h-50 avail-table">
 		<h3><%= "#{@provider.name} is already booked at these times:" if @provider.appointments.any? %></h3>
-		<% @provider.appointments.each do |exist_appt| %>
+		<% @provider.appointments.order("start_datetime ASC").each do |exist_appt| %>
 			<%= exist_appt.start_datetime.to_date %> from <%= exist_appt.start_datetime.strftime("%I:%M %p") %> to <%= exist_appt.end_datetime.strftime("%I:%M %p") %> <br>
 		<% end %>
 	</div>

@@ -1,8 +1,8 @@
 module AvailabilitiesHelper
 	def ftime
-		x = (0..24).map do |x| 
+		x = (0..24).map do |x|
 			if x == 0 || x == 24
-			 ["Midnight", x]				
+			 ["Midnight", x]
 			elsif x > 0 && x < 12
 			 ["#{x}:00 AM", x]
 			elsif x==12
@@ -24,13 +24,7 @@ module AvailabilitiesHelper
 		elsif hour > 12 && hour < 24
 			"#{hour-12}:00 PM"
 		end
-				
-	end
 
-	def wdays
-		b = %w(sunday monday tuesday wednesday thursday friday saturday)
-		a = (0..6).to_a
-		a.zip(b)
 	end
 
 end

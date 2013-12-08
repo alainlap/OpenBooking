@@ -1,4 +1,12 @@
-<h1 class="h-full light">Choose a provider for your appointment</h1>
+<h1 class="h-full light">Choose a provider for your appointment
+
+	<%= form_tag :providers, id: "filter-form" do %>
+		<%= text_field_tag :filter, nil, placeholder: "Filter providers" %>
+		<%= select_tag 'property', options_for_select(["name","city", "description"]) %>
+		<%= select_tag 'type', options_from_collection_for_select(@types, 'id', 'name') %>
+	<% end %>
+
+</h1>
 
 	<% if !@user %>
 		<div id="signed-out-notice">

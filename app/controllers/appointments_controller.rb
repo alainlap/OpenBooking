@@ -5,8 +5,8 @@ class AppointmentsController < ApplicationController
   before_action :set_user
 
   def index
-    @i_am_client_appointments = (@user.client ? Appointment.where(["client_id = ?", @user.client.id]) : []) 
-    @i_am_provider_appointments = (@user.provider ? Appointment.where(["provider_id = ?", @user.provider.id]) : []) 
+    @i_am_client_appointments = (@user.client ? Appointment.where(["client_id = ?", @user.client.id]).order("start_datetime ASC") : [])
+    @i_am_provider_appointments = (@user.provider ? Appointment.where(["provider_id = ?", @user.provider.id]).order("start_datetime ASC") : [])
   end
 
   def new
@@ -68,5 +68,5 @@ class AppointmentsController < ApplicationController
     def set_availabilities
       @availabilities = @provider.availabilities.where("start_time IS NOT NULL")
     end
-    
+
 end

@@ -1,6 +1,8 @@
 OpenBooking::Application.routes.draw do
   root 'providers#index'
   
+  post 'providers' => 'providers#index'
+
   resources :providers, only: [:index] do
     resources :appointments, only: [:new, :create]
   end

@@ -136,7 +136,7 @@ form {
 }
 
 .login {
-	/*border-radius: 5px;*/	
+	/*border-radius: 5px;*/
 	padding-right: 1.5em;
 }
 
@@ -169,6 +169,13 @@ form {
 	/*border-radius: 5px;*/
 	text-decoration: none;
 	text-align: left;
+	position: relative;
+}
+
+.book-button {
+	position: absolute;
+	bottom: 15px;
+	right: 15px;
 }
 
 .profile-wrapper, .card {
@@ -358,4 +365,21 @@ a.card:hover, a.card:active {
 .pagination {
 	text-align: center;
 	background-color: #F5F6F5;
+}
+
+#filter-form {
+	padding:0;
+	display: inline-block;
+	float: right;
+}
+
+#filter-form input, #filter-form select {
+	font-size: 20px;
+	vertical-align: middle;
+}
+
+#filter-form input {
+	height: 1.3em;
+	padding: 0 5px;
+	border-radius: 3px;
 }
